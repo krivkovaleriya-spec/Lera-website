@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Валерия Кривко — Технический специалист по запускам онлайн-школ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Технический специалист по запускам онлайн-школ. Tilda, GetCourse, чат-боты, ИИ-агенты. 50+ проектов, 10 лет в IT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+const TWEAKS = /*EDITMODE-BEGIN*/{
+  "greenHue": 130,
+  "greenSat": 0.2,
+  "greenLit": 0.78,
+  "showCustomCursor": true
+}/*EDITMODE-END*/;
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+:root {
+  --g-hue: 130; --g-sat: 0.20; --g-lit: 0.78;
+  --green:      oklch(var(--g-lit) var(--g-sat) var(--g-hue));
+  --green-dim:  oklch(calc(var(--g-lit) * 0.72) calc(var(--g-sat) * 0.8) var(--g-hue));
+  --green-deep: oklch(0.22 calc(var(--g-sat) * 0.6) var(--g-hue));
+  --bg: #0a0a0a; --bg-2: #141414;
+  --fg: #f0f0e8; --fg-dim: #a8a9a3; --fg-mute: #5a5b56;
+  --line: rgba(255,255,255,0.08); --line-2: rgba(255,255,255,0.18);
+  --maxw: 1480px; --pad-x: clamp(20px, 4vw, 72px);
+  --f-sans: "Inter", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", monospace;
+  --f-display: "Space Grotesk", sans-serif;
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
+html, body { margin:0; padding:0; background:var(--bg); color:var(--fg); font-family:var(--f-sans); font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+body { overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+em { font-style: normal; background: var(--green); color: var(--bg); padding: 0 0.15em; }
+
+/* Cursor */
+.cursor, .cursor-dot { position:fixed; top:0; left:0; pointer-events:none; z-index:9999; mix-blend-mode:difference; will-change:transform; }
+.cursor { width:32px; height:32px; border:1px solid var(--green); border-radius:50%; transform:translate(-50%,-50%); transition:width .25s var(--ease), height .25s var(--ease); opacity:0; }
+.cursor-dot { width:5px; height:5px; background:var(--green); border-radius:50%; transform:translate(-50%,-50%); opacity:0; }
+body.cursor-on .cursor, body.cursor-on .cursor-dot { opacity:1; }
+body.cursor-hover .cursor { width:64px; height:64px; }
+@media (hover:none){.cursor,.cursor-dot{display:none!important;}}
+
+/* Topbar */
+.topbar { position:fixed; top:0; left:0; right:0; z-index:50; padding:18px var(--pad-x); background:linear-gradient(to bottom, rgba(10,10,10,.95), rgba(10,10,10,0)); backdrop-filter:blur(8px); }
+.topbar-inner { max-width:var(--maxw); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.brand { display:flex; align-items:center; gap:12px; }
+.brand-mark { width:28px; height:28px; border-radius:50%; background:var(--green); box-shadow:0 0 24px var(--green-dim); }
+.brand-text { display:flex; flex-direction:column; line-height:1.05; }
+.brand-name { font-family:var(--f-display); font-size:17px; font-weight:700; letter-spacing:-.02em; text-transform:uppercase; }
+.brand-sub { font-family:var(--f-mono); font-size:11px; color:var(--fg-mute); margin-top:4px; }
+.nav { display:flex; gap:28px; font-family:var(--f-mono); font-size:13px; color:var(--fg-dim); }
+.nav a:hover { color: var(--green); }
+.cta-header { display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border:1px solid var(--green); color:var(--green); font-size:13px; font-family:var(--f-mono); transition:background .2s, color .2s; }
+.cta-header:hover { background: var(--green); color: var(--bg); }
+@media (max-width:880px){.nav{display:none;}}
+
+/* Hero */
+.hero { position:relative; min-height:90vh; padding:160px var(--pad-x) 60px; max-width:var(--maxw); margin:0 auto; overflow:hidden; }
+.hero-inner { max-width: 1180px; position: relative; z-index: 2; }
+.hero-deco { position: absolute; right: -10vw; top: 20%; width: 60vh; height: 60vh; border-radius: 50%; background: radial-gradient(circle, var(--green-dim), transparent 60%); opacity: 0.18; filter: blur(40px); pointer-events: none; }
+.hero-stats { margin-top: 64px; padding-top: 36px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; position: relative; z-index: 2; }
+.hero-stat { display: flex; flex-direction: column; gap: 8px; }
+.hero-stat-val { font-family: var(--f-display); font-size: clamp(36px, 4.4vw, 64px); font-weight: 700; line-height: 1; letter-spacing: -.04em; color: var(--green); display: flex; align-items: center; gap: 10px; }
+.hero-stat-val svg { width: 0.9em; height: 0.9em; stroke: var(--green); flex-shrink: 0; }
+.hero-stat-lab { font-family: var(--f-mono); font-size: 12px; color: var(--fg-dim); text-transform: uppercase; letter-spacing: .06em; line-height: 1.4; }
+@media (max-width: 980px){ .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
+.hero-meta { display:inline-flex; align-items:center; gap:10px; font-family:var(--f-mono); font-size:12px; color:var(--fg-dim); margin-bottom: 24px; }
+.dot { width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 12px var(--green); animation:pulse 2s infinite; }
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-title { font-family:var(--f-display); font-size:clamp(40px, 6.4vw, 104px); font-weight:700; line-height:.95; letter-spacing:-.03em; margin:0 0 28px; text-transform:uppercase; }
+.hero-sub-title { font-family:var(--f-display); font-size:clamp(18px, 1.6vw, 22px); font-weight:500; color:var(--fg); margin:0 0 24px; line-height:1.3; }
+.hero-text { max-width:560px; font-size:clamp(15px, 1.15vw, 17px); color:var(--fg-dim); line-height:1.55; margin:0 0 36px; }
+.hero-cta { display:flex; gap:12px; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; gap:10px; padding:18px 28px; font-family:var(--f-mono); font-size:13px; letter-spacing:.02em; transition:all .3s var(--ease); border:1px solid transparent; text-transform:uppercase; }
+.btn-primary { background:var(--green); color:var(--bg); }
+.btn-primary:hover { background:var(--fg); transform:translateY(-2px); }
+.btn-ghost { border-color:var(--line-2); color:var(--fg); }
+.btn-ghost:hover { border-color:var(--green); color:var(--green); }
+
+.hero-photo { position:relative; aspect-ratio:3/4; max-width:480px; justify-self:end; width:100%; background:repeating-linear-gradient(45deg, var(--bg-2) 0 12px, transparent 12px 24px), var(--green-deep); border:1px solid var(--line-2); overflow:hidden; }
+.hero-photo-frame { position:absolute; inset:12px; border:1px dashed var(--line-2); }
+.hero-photo-label { position:absolute; left:16px; top:16px; right:16px; display:flex; justify-content:space-between; font-family:var(--f-mono); font-size:11px; color:var(--fg-dim); text-transform:uppercase; letter-spacing:.06em; }
+.hero-photo-tag { position:absolute; left:16px; bottom:16px; font-family:var(--f-mono); font-size:11px; color:var(--green); text-transform:uppercase; letter-spacing:.08em; }
+
+
+/* Marquee */
+.marquee { border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden; padding:22px 0; }
+.marquee-track { display:flex; gap:40px; white-space:nowrap; animation:marquee 60s linear infinite; font-family:var(--f-display); font-size:clamp(28px, 3.5vw, 48px); font-weight:700; text-transform:uppercase; }
+.marquee-track span:nth-child(even) { color: var(--green); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Sections */
+.section { max-width:var(--maxw); margin:0 auto; padding:120px var(--pad-x); position:relative; }
+.section-head { margin-bottom:56px; max-width:900px; }
+.section-num { font-family:var(--f-mono); font-size:12px; color:var(--fg-mute); text-transform:uppercase; letter-spacing:.12em; margin-bottom:16px; }
+.section-title { font-family:var(--f-display); font-size:clamp(40px, 6.5vw, 96px); font-weight:700; line-height:.95; letter-spacing:-.03em; margin:0; text-transform:uppercase; }
+.section-sub { margin-top:24px; font-size:clamp(15px, 1.2vw, 18px); color:var(--fg-dim); max-width:60ch; }
+
+/* Audience cards */
+.aud-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
+.aud-card { padding:36px 32px; border:1px solid var(--line); background:var(--bg-2); display:flex; flex-direction:column; gap:18px; transition:border-color .3s, transform .3s var(--ease); position:relative; min-height: 320px; }
+.aud-card:hover { border-color:var(--green); transform:translateY(-4px); }
+.aud-num { font-family:var(--f-mono); font-size:12px; color:var(--green); }
+.aud-title { font-family:var(--f-display); font-size:clamp(22px, 2vw, 28px); font-weight:700; text-transform:uppercase; letter-spacing:-.02em; line-height:1.1; }
+.aud-text { color:var(--fg-dim); font-size:15px; line-height:1.55; }
+@media (max-width:900px){.aud-grid{grid-template-columns:1fr;}}
+
+/* Why-me cards */
+.why-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; }
+.why-card { padding:36px 32px; border:1px solid var(--line); background:var(--bg-2); display:flex; flex-direction:column; gap:20px; transition:border-color .3s; }
+.why-card:hover { border-color:var(--green); }
+.why-icon { width:40px; height:40px; display:grid; place-items:center; border:1px solid var(--green); color:var(--green); font-family:var(--f-mono); font-size:18px; font-weight:700; }
+.why-title { font-family:var(--f-display); font-size:clamp(20px, 1.8vw, 26px); font-weight:700; text-transform:uppercase; letter-spacing:-.02em; line-height:1.15; }
+.why-quote { color:var(--fg-dim); font-size:15px; line-height:1.55; font-style:italic; padding-left:16px; border-left:2px solid var(--green); }
+@media (max-width:780px){.why-grid{grid-template-columns:1fr;}}
+
+/* Services list */
+/* Services grid */
+.svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.svc-card { padding:32px 28px; border:1px solid var(--line); background:var(--bg-2); display:flex; flex-direction:column; gap:16px; transition:border-color .3s; }
+.svc-card:hover { border-color:var(--green); }
+.svc-card.svc-card-wide { grid-column:1/-1; flex-direction:row; align-items:center; gap:48px; }
+.svc-card-wide .svc-card-desc { max-width:60ch; }
+.svc-card-num { font-family:var(--f-mono); font-size:11px; color:var(--green); letter-spacing:.08em; }
+.svc-card-title { font-family:var(--f-display); font-size:clamp(18px,1.6vw,22px); font-weight:700; text-transform:uppercase; letter-spacing:-.02em; line-height:1.1; }
+.svc-card-wide .svc-card-title { font-size:clamp(22px,2vw,28px); flex-shrink:0; }
+.svc-card-desc { color:var(--fg-dim); font-size:15px; line-height:1.55; }
+@media(max-width:900px){ .svc-grid { grid-template-columns:1fr 1fr; } .svc-card.svc-card-wide { flex-direction:column; gap:16px; } }
+@media(max-width:600px){ .svc-grid { grid-template-columns:1fr; } }
+
+/* About */
+.about-grid { display:grid; grid-template-columns: 0.85fr 1.15fr; gap:64px; align-items: start; }
+.about-photo { position:relative; aspect-ratio:3/4; width:100%; background:var(--bg-2); border:1px solid var(--line-2); overflow:hidden; }
+.about-photo-frame { position:absolute; inset:12px; border:1px dashed var(--line-2); }
+.about-photo-label { position:absolute; left:16px; top:16px; right:16px; display:flex; justify-content:space-between; font-family:var(--f-mono); font-size:11px; color:var(--fg-dim); text-transform:uppercase; letter-spacing:.06em; }
+.about-photo-tag { position:absolute; left:16px; bottom:16px; font-family:var(--f-mono); font-size:11px; color:var(--green); text-transform:uppercase; letter-spacing:.08em; }
+.about-body p { font-size:17px; line-height:1.65; color:var(--fg-dim); max-width:60ch; margin:0 0 18px; }
+.about-facts { margin-top:36px; padding-top:32px; border-top:1px solid var(--line); display:flex; flex-direction:column; }
+.about-facts-title { font-family:var(--f-mono); font-size:11px; color:var(--fg-mute); text-transform:uppercase; letter-spacing:.12em; margin-bottom:18px; }
+.about-fact { display:flex; gap:16px; align-items:baseline; padding:14px 0; border-bottom:1px solid var(--line); }
+.about-fact-marker { font-family:var(--f-mono); font-size:12px; color:var(--green); min-width:24px; }
+.about-fact-text { font-family:var(--f-display); font-size:clamp(16px, 1.4vw, 19px); font-weight:500; line-height:1.3; color:var(--fg); }
+.about-fact-text strong { color: var(--green); font-weight: 700; }
+.about-numbers { display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; margin-top:40px; padding-top:36px; border-top:1px solid var(--line); }
+.about-num { display:flex; flex-direction:column; gap:6px; }
+.about-num-val { font-family:var(--f-display); font-size:clamp(32px, 3.4vw, 48px); font-weight:700; line-height:1; color:var(--green); letter-spacing:-.03em; }
+.about-num-lab { font-family:var(--f-mono); font-size:12px; color:var(--fg-dim); text-transform:uppercase; letter-spacing:.06em; }
+@media (max-width:980px){.about-grid{grid-template-columns:1fr;gap:40px;}.about-photo{max-width:380px;}}
+@media (max-width:780px){.about-numbers{grid-template-columns:1fr;}}
+
+/* Cases */
+.cases-list { display:flex; flex-direction:column; gap:24px; }
+.case { display:grid; grid-template-columns: 1.2fr 1fr; gap:32px; padding:32px; border:1px solid var(--line); background:var(--bg-2); transition:border-color .3s; }
+.case:hover { border-color:var(--green); }
+.case-mockup { aspect-ratio:16/10; background:repeating-linear-gradient(135deg, var(--bg) 0 10px, transparent 10px 20px), var(--green-deep); border:1px solid var(--line-2); display:grid; place-items:center; position:relative; }
+.case-mockup-label { background:var(--bg); padding:6px 12px; font-family:var(--f-mono); font-size:11px; color:var(--fg-dim); text-transform:uppercase; letter-spacing:.08em; }
+.case-info { display:flex; flex-direction:column; gap:14px; }
+.case-niche { display:inline-flex; align-self:flex-start; padding:6px 12px; border:1px solid var(--green); color:var(--green); font-family:var(--f-mono); font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+.case-name { font-family:var(--f-display); font-size:clamp(22px, 2.2vw, 30px); font-weight:700; text-transform:uppercase; letter-spacing:-.02em; line-height:1.1; margin:0; }
+.case-did { color:var(--fg-dim); font-size:15px; line-height:1.55; margin:0; }
+.case-quote { font-family:var(--f-display); font-size:16px; font-style:italic; color:var(--fg); padding-left:14px; border-left:2px solid var(--green); }
+.case-cta { display:inline-flex; align-self:flex-start; align-items:center; gap:6px; margin-top:auto; padding-top:8px; font-family:var(--f-mono); font-size:13px; color:var(--green); text-transform:uppercase; letter-spacing:.05em; }
+.case-cta:hover { color: var(--fg); }
+@media (max-width:900px){.case{grid-template-columns:1fr;}}
+
+/* Testimonials */
+.testi-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.testi { margin:0; padding:32px; border:1px solid var(--line); background:var(--bg-2); display:flex; flex-direction:column; gap:24px; transition:border-color .3s; min-height: 240px; }
+.testi:hover { border-color:var(--green); }
+.testi-screenshot-tag { display:inline-flex; align-self:flex-start; padding:4px 10px; background:var(--green); color:var(--bg); font-family:var(--f-mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em; }
+.testi blockquote { margin:0; font-family:var(--f-display); font-size:clamp(17px, 1.4vw, 20px); font-weight:500; line-height:1.4; letter-spacing:-.01em; }
+.testi blockquote::before { content:"❝ "; color: var(--green); }
+.testi figcaption { display:flex; justify-content:space-between; font-family:var(--f-mono); font-size:12px; color:var(--fg-dim); text-transform:uppercase; letter-spacing:.06em; margin-top:auto; }
+.t-name { color: var(--fg); }
+@media (max-width:780px){.testi-grid{grid-template-columns:1fr;}}
+
+/* Lead magnet */
+.lead { padding: 80px var(--pad-x); }
+.lead-box { max-width:var(--maxw); margin:0 auto; padding:64px; border:1px solid var(--green); background:linear-gradient(135deg, var(--green-deep), transparent 80%), var(--bg-2); position:relative; overflow:hidden; }
+.lead-box::before { content:""; position:absolute; right:-100px; top:-100px; width:400px; height:400px; border-radius:50%; background:radial-gradient(circle, var(--green-dim), transparent 70%); opacity:.2; pointer-events:none; }
+.lead-eyebrow { font-family:var(--f-mono); font-size:12px; color:var(--green); text-transform:uppercase; letter-spacing:.12em; margin-bottom:16px; }
+.lead-title { font-family:var(--f-display); font-size:clamp(32px, 5vw, 64px); font-weight:700; line-height:1; letter-spacing:-.03em; text-transform:uppercase; margin:0 0 24px; max-width:14ch; }
+.lead-text { color:var(--fg-dim); font-size:17px; line-height:1.6; max-width:60ch; margin:0 0 32px; }
+.lead-text em { background: transparent; color: var(--green); padding: 0; font-style: italic; }
+.lead-cta { display:flex; gap:12px; flex-wrap:wrap; }
+@media (max-width:780px){ .lead-box { padding: 40px 28px; } }
+
+/* Pricing */
+.price-table { border-top:1px solid var(--line); }
+.price-row { display:grid; grid-template-columns: 1.6fr 2fr 1fr 1fr 1fr; gap:24px; padding:22px 0; border-bottom:1px solid var(--line); font-family:var(--f-mono); font-size:14px; transition:padding .3s var(--ease), background .3s; align-items: center; }
+.price-row:not(.price-head):hover { background:linear-gradient(90deg, var(--green-deep), transparent); padding-left:20px; }
+.price-head { color:var(--fg-mute); font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+.price-row:not(.price-head) .price-name { font-family:var(--f-display); font-size:18px; font-weight:700; text-transform:uppercase; letter-spacing:-.01em; }
+.price-row .price-incl { color:var(--fg-dim); font-size:13px; line-height:1.4; }
+.price-row span.price-val { color:var(--fg-dim); }
+.price-row:not(.price-head):hover span.price-val { color:var(--green); }
+.price-cta { margin-top:32px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; font-family:var(--f-mono); font-size:13px; color:var(--fg-dim); }
+@media (max-width:980px){
+  .price-row { grid-template-columns: 1fr 1fr; gap:8px 20px; }
+  .price-head { display: none; }
+  .price-row .price-name { grid-column: 1/-1; }
+  .price-row .price-incl { grid-column: 1/-1; color: var(--fg-mute); }
+}
+
+/* Final CTA */
+.contact { padding-top:80px; padding-bottom:80px; }
+.contact-huge { font-family:var(--f-display); font-size:clamp(48px, 9vw, 144px); line-height:.95; letter-spacing:-.04em; margin:0 0 32px; font-weight:700; text-transform:uppercase; }
+.contact-text { max-width:600px; font-size:clamp(16px, 1.2vw, 19px); color:var(--fg-dim); margin:0 0 48px; }
+.contact-buttons { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+.contact-socials { display:flex; gap:24px; font-family:var(--f-mono); font-size:13px; color:var(--fg-dim); text-transform:uppercase; letter-spacing:.06em; }
+.contact-socials a:hover { color: var(--green); }
+
+/* Footer */
+.foot { max-width:var(--maxw); margin:0 auto; padding:40px var(--pad-x) 32px; border-top:1px solid var(--line); }
+.foot-top { display:flex; justify-content:space-between; align-items:center; padding-bottom:24px; flex-wrap:wrap; gap:16px; }
+.foot-name { font-family:var(--f-display); font-size:22px; font-weight:700; text-transform:uppercase; letter-spacing:-.02em; }
+.foot-role { font-family:var(--f-mono); font-size:12px; color:var(--fg-mute); margin-left:16px; }
+.foot-clock { font-family:var(--f-mono); font-size:13px; color:var(--green); letter-spacing:.06em; }
+.foot-bottom { display:flex; justify-content:space-between; font-family:var(--f-mono); font-size:11px; color:var(--fg-mute); text-transform:uppercase; letter-spacing:.08em; padding-top:20px; border-top:1px solid var(--line); }
+
+/* Floating WA/TG */
+.float-cta { position: fixed; bottom: 90px; right: 20px; z-index: 50; display:flex; flex-direction:column; gap:10px; }
+.float-btn { width:54px; height:54px; border-radius:50%; background:var(--green); color:var(--bg); display:grid; place-items:center; box-shadow:0 10px 30px rgba(0,0,0,0.4); transition: transform .2s; }
+.float-btn:hover { transform: scale(1.08); }
+.float-btn svg { width:26px; height:26px; }
+
+/* Tweaks panel */
+.tweaks { position:fixed; bottom:20px; right:20px; width:300px; background:#0b0b0b; border:1px solid var(--green); color:#eee; font-family:"JetBrains Mono",monospace; font-size:12px; z-index:9998; box-shadow:0 20px 60px rgba(0,0,0,.5); }
+.tw-head { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border-bottom:1px solid var(--line-2); text-transform:uppercase; letter-spacing:.12em; }
+.tw-x { font-size:20px; line-height:1; color:#aaa; }
+.tw-body { padding:16px; display:flex; flex-direction:column; gap:14px; }
+.tw-label { text-transform:uppercase; letter-spacing:.08em; color:#888; font-size:11px; }
+.tw-body input[type=range] { width:100%; accent-color:var(--green); }
+.tw-switch { display:flex; align-items:center; gap:10px; color:#ccc; }
+.tw-switch input { accent-color:var(--green); }
+.tw-fab { position:fixed; bottom:20px; right:20px; width:48px; height:48px; border-radius:50%; background:var(--bg-2); border:1px solid var(--green); color:var(--green); display:grid; place-items:center; z-index:9997; cursor:pointer; }
+.tw-fab svg { width:20px; height:20px; }
+
+/* ===== HAMBURGER ===== */
+.burger { display:none; flex-direction:column; gap:5px; padding:6px; cursor:pointer; }
+.burger span { display:block; width:22px; height:1.5px; background:var(--fg); border-radius:2px; transition:all .35s var(--ease); transform-origin:center; }
+.burger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+.burger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+.nav-mobile { display:none; position:fixed; inset:0; background:var(--bg); z-index:48; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
+.nav-mobile.open { display:flex; }
+.nav-mobile a { font-family:var(--f-display); font-size:clamp(28px,7vw,44px); font-weight:700; text-transform:uppercase; letter-spacing:-.025em; color:var(--fg); transition:color .2s; }
+.nav-mobile a:hover { color:var(--green); }
+.nav-mobile-cta { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:16px; }
+
+@media (max-width:880px) {
+  .nav { display:none; }
+  .burger { display:flex; }
+  .cta-header { display:none; }
+}
+
+/* ===== TABLET (≤1100px) ===== */
+@media (max-width:1100px) {
+  .section { padding:88px var(--pad-x); }
+  .hero { padding:140px var(--pad-x) 56px; }
+  .lead { padding:60px var(--pad-x); }
+}
+
+/* ===== MOBILE (≤768px) ===== */
+@media (max-width:768px) {
+  .section { padding:64px var(--pad-x); }
+  .hero { padding:112px var(--pad-x) 48px; min-height:auto; }
+  .section-head { margin-bottom:40px; }
+  .contact { padding-top:48px; padding-bottom:64px; }
+  .lead { padding:40px var(--pad-x); }
+  .lead-box { padding:40px 28px; }
+  .aud-card { min-height:auto; padding:28px 24px; }
+  .testi { min-height:auto; }
+  .about-photo { max-width:320px; margin:0 auto; }
+  .about-numbers { grid-template-columns:repeat(2,1fr); gap:20px; }
+  .case { padding:24px; gap:24px; }
+  .foot-top { flex-wrap:wrap; gap:8px; }
+}
+
+/* ===== SMALL MOBILE (≤480px) ===== */
+@media (max-width:480px) {
+  :root { --pad-x:18px; }
+  .section { padding:52px var(--pad-x); }
+  .hero { padding:96px var(--pad-x) 40px; }
+  .section-head { margin-bottom:32px; }
+  .hero-cta { flex-direction:column; }
+  .hero-cta .btn { justify-content:center; width:100%; }
+  .lead-cta { flex-direction:column; }
+  .lead-cta .btn { justify-content:center; width:100%; }
+  .contact-buttons { flex-direction:column; }
+  .contact-buttons .btn { justify-content:center; width:100%; }
+  .contact-huge { letter-spacing:-.025em; }
+  .contact-socials { flex-wrap:wrap; gap:16px; }
+  .foot-top { flex-direction:column; gap:6px; align-items:flex-start; }
+  .foot-bottom { flex-direction:column; gap:8px; }
+  .about-numbers { grid-template-columns:1fr 1fr; gap:16px; }
+  .about-body p { font-size:15px; }
+  .marquee-track { gap:24px; animation-duration:40s; }
+  .float-cta { bottom:16px; right:16px; }
+  .float-btn { width:48px; height:48px; }
+  .price-row { gap:6px 16px; }
+  .price-row:not(.price-head) .price-name { font-size:16px; }
+  .svc { padding:24px 0; }
+  .lead-box { padding:32px 20px; }
+}
+
+/* ===== GC FLIP CARDS ===== */
+.gc-flip-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+.flip-card { perspective:1400px; aspect-ratio:4/3; cursor:pointer; }
+.flip-inner { position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform .8s cubic-bezier(.4,0,.2,1); }
+.flip-card.flipped .flip-inner { transform:rotateY(180deg); }
+.flip-face { position:absolute; inset:0; backface-visibility:hidden; overflow:hidden; border:1px solid var(--line); }
+.flip-face img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
+.flip-back img { object-position:top left; }
+.flip-back { transform:rotateY(180deg); border-color:var(--green); }
+.flip-badge { position:absolute; top:14px; left:14px; font-family:var(--f-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; padding:4px 10px; z-index:2; }
+.flip-face .flip-badge { background:var(--bg); color:var(--fg-dim); }
+.flip-back .flip-badge { background:var(--green); color:var(--bg); }
+.flip-client { position:absolute; bottom:14px; left:14px; right:14px; font-family:var(--f-mono); font-size:11px; color:var(--fg-dim); letter-spacing:.06em; text-transform:uppercase; z-index:2; }
+.flip-hint { position:absolute; bottom:14px; right:14px; font-family:var(--f-mono); font-size:10px; color:var(--fg-mute); letter-spacing:.06em; text-transform:uppercase; z-index:2; animation:pulse 2s infinite; }
+.gc-card { position:relative; aspect-ratio:4/3; overflow:hidden; border:1px solid var(--line); transition:border-color .3s; }
+.gc-card .flip-badge { background:var(--bg); color:var(--fg-dim); }
+.gc-card:hover { border-color:var(--green); }
+.gc-card img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+@media(max-width:768px){ .gc-flip-grid { grid-template-columns:1fr; } .flip-card { aspect-ratio:4/3; } }
+
+/* ===== PREVIEW BAR ===== */
+#preview-bar { position:fixed; top:0; left:0; right:0; z-index:99999; height:48px; background:#0c0c0c; border-bottom:1px solid rgba(255,255,255,.07); display:flex; align-items:center; justify-content:center; gap:4px; font-family:var(--f-mono); }
+.pb-label { font-size:10px; color:var(--fg-mute); letter-spacing:.15em; text-transform:uppercase; padding-right:12px; border-right:1px solid rgba(255,255,255,.08); margin-right:8px; }
+.pb-btn { display:inline-flex; align-items:center; gap:6px; padding:5px 14px; border:1px solid transparent; color:var(--fg-mute); background:none; cursor:pointer; font-family:var(--f-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; transition:all .18s; }
+.pb-btn:hover { color:var(--fg); }
+.pb-btn.pb-active { color:var(--green); border-color:rgba(124,217,87,.35); background:rgba(124,217,87,.05); }
+.pb-btn svg { width:14px; height:14px; flex-shrink:0; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+body.has-preview-bar .topbar { top:48px; }
+#preview-stage { display:none; position:fixed; inset:48px 0 0 0; z-index:9998; background:#0f0f0f; align-items:flex-start; justify-content:center; overflow:auto; padding:32px 24px; }
+#preview-stage.pb-show { display:flex; }
+#preview-device { flex-shrink:0; display:flex; flex-direction:column; height:calc(100vh - 112px); }
+#preview-device.dev-mobile { width:390px; border:10px solid #1c1c1c; border-radius:48px; box-shadow:inset 0 0 0 1.5px #303030, 0 40px 120px rgba(0,0,0,.9); }
+#preview-device.dev-tablet { width:1024px; border:8px solid #1c1c1c; border-radius:18px; box-shadow:inset 0 0 0 1.5px #303030, 0 32px 80px rgba(0,0,0,.8); }
+.pb-notch { height:28px; background:#0a0a0a; flex-shrink:0; position:relative; display:none; }
+.pb-notch::after { content:""; position:absolute; top:9px; left:50%; transform:translateX(-50%); width:80px; height:8px; background:#1e1e1e; border-radius:4px; }
+#preview-device.dev-mobile .pb-notch { display:block; }
+#preview-iframe { display:block; width:100%; flex:1; min-height:0; border:none; background:#0a0a0a; }
+</style>
+</head>
+<body>
+
+<div id="preview-bar">
+  <span class="pb-label">preview</span>
+  <button class="pb-btn pb-active" data-device="desktop">
+    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Desktop
+  </button>
+  <button class="pb-btn" data-device="tablet">
+    <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="18.5" r="1"/></svg>Tablet · 1024
+  </button>
+  <button class="pb-btn" data-device="mobile">
+    <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18.5" r="1"/></svg>Mobile · 390
+  </button>
+</div>
+<div id="preview-stage">
+  <div id="preview-device">
+    <div class="pb-notch"></div>
+    <iframe id="preview-iframe" title="Предпросмотр"></iframe>
+  </div>
+</div>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#top" class="brand" data-magnetic>
+      <span class="brand-mark"></span>
+      <span class="brand-text">
+        <span class="brand-name">VK</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#audience" data-magnetic>для кого</a>
+      <a href="#why" data-magnetic>почему я</a>
+      <a href="#services" data-magnetic>услуги</a>
+      <a href="#cases" data-magnetic>кейсы</a>
+      <a href="#pricing" data-magnetic>прайс</a>
+    </nav>
+    <a href="https://wa.me/+77775481717" class="cta-header" data-magnetic>
+      <span>Написать</span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5"/></svg>
+    </a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="nav-mobile" id="navMobile" aria-label="Мобильное меню">
+  <a href="#audience" class="nav-m-link">для кого</a>
+  <a href="#why" class="nav-m-link">почему я</a>
+  <a href="#services" class="nav-m-link">услуги</a>
+  <a href="#cases" class="nav-m-link">кейсы</a>
+  <a href="#pricing" class="nav-m-link">прайс</a>
+  <div class="nav-mobile-cta">
+    <a href="https://wa.me/+77775481717" class="btn btn-primary">WhatsApp</a>
+    <a href="https://t.me/valeriyavaly" class="btn btn-ghost">Telegram</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-meta"><span class="dot"></span><span>доступна к проектам</span></div>
+    <h1 class="hero-title">Делаю проекты как&nbsp;будто у&nbsp;меня есть <em>доля в&nbsp;вашем бизнесе</em></h1>
+    <p class="hero-sub-title">Технический специалист по&nbsp;запускам онлайн-школ — быстро, красиво, в&nbsp;срок</p>
+    <p class="hero-text">Tilda, GetCourse, чат-боты, вебинары, ИИ-агенты&nbsp;— берусь за&nbsp;техническую сторону так, чтобы&nbsp;вы не&nbsp;думали об&nbsp;этом вообще. Работаю с&nbsp;экспертами, продюсерами и&nbsp;командами по&nbsp;всему миру.</p>
+    <div class="hero-cta">
+      <a href="https://wa.me/+77775481717" class="btn btn-primary" data-magnetic><span>Написать в WhatsApp</span></a>
+      <a href="https://t.me/valeriyavaly" class="btn btn-ghost" data-magnetic>Написать в Telegram</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-val">50+</div>
+        <div class="hero-stat-lab">реализованных проектов</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">12+</div>
+        <div class="hero-stat-lab">лет в IT</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">1000+</div>
+        <div class="hero-stat-lab">выпитых чашек кофе</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span>∞</span></div>
+        <div class="hero-stat-lab">клиенты по всему миру</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>GetCourse</span><span>·</span><span>Tilda</span><span>·</span><span>Salebot</span><span>·</span>
+    <span>n8n</span><span>·</span><span>ИИ агенты</span><span>·</span><span>ИИ продавцы</span><span>·</span>
+    <span>Telegram&nbsp;Bots</span><span>·</span><span>WhatsApp</span><span>·</span>
+    <span>Bizon365</span><span>·</span><span>Pruffme</span><span>·</span><span>Email</span><span>·</span>
+    <span>SMS</span><span>·</span><span>CRM</span><span>·</span><span>Payments</span><span>·</span>
+    <span>Automation</span><span>·</span>
+    <span>GetCourse</span><span>·</span><span>Tilda</span><span>·</span><span>Salebot</span><span>·</span>
+    <span>n8n</span><span>·</span><span>ИИ агенты</span><span>·</span><span>ИИ продавцы</span><span>·</span>
+    <span>Telegram&nbsp;Bots</span><span>·</span><span>WhatsApp</span><span>·</span>
+    <span>Bizon365</span><span>·</span><span>Pruffme</span><span>·</span><span>Email</span><span>·</span>
+    <span>SMS</span><span>·</span><span>CRM</span><span>·</span><span>Payments</span><span>·</span>
+    <span>Automation</span><span>·</span>
+  </div>
+</div>
+
+<!-- AUDIENCE -->
+<section class="section" id="audience">
+  <div class="section-head">
+    <div class="section-num">01 — для кого</div>
+    <h2 class="section-title">Работаю с&nbsp;экспертами на&nbsp;<em>любом этапе</em></h2>
+  </div>
+  <div class="aud-grid">
+    <div class="aud-card">
+      <div class="aud-num">/01</div>
+      <h3 class="aud-title">Только начинаете</h3>
+      <p class="aud-text">Нужен сайт, чат-бот или&nbsp;первичная настройка GetCourse&nbsp;— сделаю быстро и&nbsp;качественно. Многие клиенты начинали именно так, и&nbsp;мы&nbsp;работаем вместе уже год и&nbsp;больше.</p>
+    </div>
+    <div class="aud-card">
+      <div class="aud-num">/02</div>
+      <h3 class="aud-title">Уже запускаете</h3>
+      <p class="aud-text">Есть онлайн-школа, нужен надёжный технарь на&nbsp;регулярные запуски или&nbsp;постоянное сопровождение&nbsp;— берусь за&nbsp;сложное, соблюдаю дедлайны, не&nbsp;пропадаю на&nbsp;полпути.</p>
+    </div>
+    <div class="aud-card">
+      <div class="aud-num">/03</div>
+      <h3 class="aud-title">Хотите автоматизировать</h3>
+      <p class="aud-text">Чат-боты, автоворонки, ИИ-агенты&nbsp;— помогу выстроить технику так, чтобы&nbsp;школа работала без&nbsp;вашего постоянного участия.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="section" id="why">
+  <div class="section-head">
+    <div class="section-num">02 — почему выбирают меня</div>
+    <h2 class="section-title">Не&nbsp;исполнитель.<br><em>А партнёр.</em></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">★</div>
+      <h3 class="why-title">Берусь за&nbsp;то, от&nbsp;чего другие отказываются</h3>
+      <div class="why-quote">«Никто не&nbsp;справился с&nbsp;нашей тех-задачей. Валерия единственная, кто&nbsp;сказал: да, я&nbsp;могу, без&nbsp;проблем»</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">↗</div>
+      <h3 class="why-title">Результат лучше, чем&nbsp;вы&nbsp;представляли</h3>
+      <div class="why-quote">«Сайт получился даже лучше, чем&nbsp;я&nbsp;его для&nbsp;себя представляла. Результат превзошёл ожидания»</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <h3 class="why-title">Скорость. Вы&nbsp;за&nbsp;мной не&nbsp;успеете</h3>
+      <div class="why-quote">«Самое важное&nbsp;— скорость выполнения. Всё быстро, чётко и&nbsp;всё работает»</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">✓</div>
+      <h3 class="why-title">Понимаю без&nbsp;слов</h3>
+      <div class="why-quote">«Ты&nbsp;точно поняла, что&nbsp;мне нужно — я&nbsp;не&nbsp;могла сказать словами, но&nbsp;получила именно то, что&nbsp;хотела»</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-head">
+    <div class="section-num">03 — услуги</div>
+    <h2 class="section-title">Весь технический <em>стек</em></h2>
+    <p class="section-sub">Не&nbsp;нужно искать 5&nbsp;разных специалистов&nbsp;— закрываю всю техническую часть онлайн-школы.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-card-num">/01</div>
+      <div class="svc-card-title">Сайты на&nbsp;Tilda</div>
+      <div class="svc-card-desc">Лендинги для&nbsp;курсов, марафонов, вебинаров. Домен, платёжки, CRM, интеграции. Эстетично и&nbsp;быстро.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-card-num">/02</div>
+      <div class="svc-card-title">GetCourse</div>
+      <div class="svc-card-desc">Полная настройка: домен, уроки, тренинги, доступы, визуальное оформление личного кабинета.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-card-num">/03</div>
+      <div class="svc-card-title">Чат-боты</div>
+      <div class="svc-card-desc">Telegram, Instagram, WhatsApp. Автоворонки, сегментация, автоматические ответы по&nbsp;ключевым словам.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-card-num">/04</div>
+      <div class="svc-card-title">Вебинарные воронки</div>
+      <div class="svc-card-desc">Настройка Bizon365 / Pruffme, автовебинары, модерация, регистрация участников.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-card-num">/05</div>
+      <div class="svc-card-title">Рассылки</div>
+      <div class="svc-card-desc">Email, СМС, автодозвоны. Настройка цепочек и&nbsp;триггерных коммуникаций.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-card-num">/06</div>
+      <div class="svc-card-title">Визуал GetCourse</div>
+      <div class="svc-card-desc">Стильное оформление личного кабинета, уроков, страниц курса. Эстетика, которая выглядит дорого&nbsp;— клиенты это&nbsp;замечают.</div>
+    </div>
+    <div class="svc-card svc-card-wide">
+      <div>
+        <div class="svc-card-num">/07 · флагман</div>
+        <div class="svc-card-title">ИИ&nbsp;продавец</div>
+      </div>
+      <div class="svc-card-desc">Умный ИИ-агент, который общается с&nbsp;клиентами в&nbsp;WhatsApp или&nbsp;Telegram: отвечает, выявляет потребности, ведёт к&nbsp;покупке&nbsp;— 24/7 без&nbsp;вашего участия.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-head">
+    <div class="section-num">04 — обо мне</div>
+    <h2 class="section-title">Из&nbsp;кибербеза —<br>в&nbsp;<em>онлайн-школы</em></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-photo">
+      <img src="images/Lera.png" alt="Валерия Кривко" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+      <div class="about-photo-tag">Валерия Кривко</div>
+    </div>
+    <div>
+      <div class="about-body">
+        <p>10&nbsp;лет я&nbsp;работала в&nbsp;кибербезопасности&nbsp;— в&nbsp;корпоративном IT, где&nbsp;цена ошибки высока и&nbsp;дедлайн не&nbsp;обсуждается. Это&nbsp;научило думать системно, не&nbsp;паниковать в&nbsp;нестандартных ситуациях и&nbsp;всегда находить решение&nbsp;— даже там, где&nbsp;другие разводят руками.</p>
+        <p>Два года назад я&nbsp;пришла в&nbsp;онлайн-образование. И&nbsp;оказалось, что&nbsp;именно такой технарь здесь нужен больше всего&nbsp;— тот, кто&nbsp;берётся за&nbsp;сложное, не&nbsp;пропадает на&nbsp;полпути и&nbsp;относится к&nbsp;чужому проекту как&nbsp;к&nbsp;своему.</p>
+        <p>Я&nbsp;сама предприниматель: запускала бренд одежды и&nbsp;бренд эко-свечей, запускала своё онлайн-обучение, инвестирую. Поэтому я&nbsp;понимаю вас не&nbsp;только как&nbsp;исполнитель&nbsp;— но&nbsp;и&nbsp;как&nbsp;человек, который знает, каково это&nbsp;— делать своё дело.</p>
+        <p>В&nbsp;свободное время&nbsp;— теннис и&nbsp;путешествия. Жизнь за&nbsp;пределами ноутбука делает работу лучше.</p>
+      </div>
+      <div class="about-facts">
+        <div class="about-facts-title">факты</div>
+        <div class="about-fact"><span class="about-fact-marker">/01</span><span class="about-fact-text"><strong>10 лет</strong> в&nbsp;IT и&nbsp;кибербезопасности</span></div>
+        <div class="about-fact"><span class="about-fact-marker">/02</span><span class="about-fact-text"><strong>2+ года</strong> — технический специалист онлайн-школ</span></div>
+        <div class="about-fact"><span class="about-fact-marker">/03</span><span class="about-fact-text"><strong>50+</strong> реализованных проектов</span></div>
+        <div class="about-fact"><span class="about-fact-marker">/04</span><span class="about-fact-text">Работаю с&nbsp;клиентами <strong>по&nbsp;всему миру</strong>&nbsp;— удалённо</span></div>
+        <div class="about-fact"><span class="about-fact-marker">/05</span><span class="about-fact-text">Сдаю в&nbsp;срок — <strong>всегда</strong></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="section" id="cases">
+  <div class="section-head">
+    <div class="section-num">05 — кейсы</div>
+    <h2 class="section-title">Проекты <em>в деле</em></h2>
+  </div>
+  <div class="cases-list">
+
+    <article class="case">
+      <div class="case-mockup"><div class="case-mockup-label">мокап · нутрициолог</div></div>
+      <div class="case-info">
+        <span class="case-niche">Нутрициолог</span>
+        <h3 class="case-name">Сайты, боты, воронки&nbsp;— 1,5&nbsp;года вместе</h3>
+        <p class="case-did">Сайты, чат-боты, вебинарные воронки, техническое сопровождение запусков. Постоянное сотрудничество.</p>
+        <div class="case-quote">«Самое важное&nbsp;— скорость выполнения. Всё быстро, чётко и&nbsp;всё работает. У&nbsp;меня работает оплата со&nbsp;всего мира»</div>
+        <a href="#" class="case-cta" data-magnetic>смотреть сайт →</a>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-mockup"><div class="case-mockup-label">мокап · продюсер</div></div>
+      <div class="case-info">
+        <span class="case-niche">Продюсер онлайн-школ</span>
+        <h3 class="case-name">6 проектов&nbsp;— на&nbsp;постоянной основе</h3>
+        <p class="case-did">Сайты на&nbsp;Tilda, настройка GetCourse, автоворонки, техническое сопровождение запусков нескольких экспертов одновременно.</p>
+        <div class="case-quote">В&nbsp;восторге от&nbsp;качества и&nbsp;скорости реализации. Работаем на&nbsp;постоянной основе.</div>
+        <a href="#" class="case-cta" data-magnetic>смотреть сайт →</a>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-mockup"><div class="case-mockup-label">мокап · школа любви</div></div>
+      <div class="case-info">
+        <span class="case-niche">Психолог · 8500+ участниц · 40 стран</span>
+        <h3 class="case-name">Полина Федотенкова — «Школа Любви»</h3>
+        <p class="case-did">Два сайта на&nbsp;Tilda: лендинг курса «Встреча Любви» и&nbsp;лендинг «Школы любви» (клубная подписка). Стильное оформление личного кабинета и&nbsp;страниц курсов на&nbsp;GetCourse.</p>
+        <div class="case-quote">В&nbsp;восторге от&nbsp;скорости и&nbsp;эстетики. После первого сайта перешли на&nbsp;постоянное сотрудничество.</div>
+        <a href="#" class="case-cta" data-magnetic>смотреть сайт →</a>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-mockup"><div class="case-mockup-label">мокап · йога</div></div>
+      <div class="case-info">
+        <span class="case-niche">Учитель йоги</span>
+        <h3 class="case-name">Сайт для&nbsp;запуска курса</h3>
+        <p class="case-did">Сайт на&nbsp;Tilda для&nbsp;запуска курса по&nbsp;йоге.</p>
+        <div class="case-quote">«Сайт получился даже лучше, чем&nbsp;я&nbsp;его для&nbsp;себя представляла. Результат превзошёл ожидания»</div>
+        <a href="#" class="case-cta" data-magnetic>смотреть сайт →</a>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-mockup"><div class="case-mockup-label">мокап · UseTime</div></div>
+      <div class="case-info">
+        <span class="case-niche">Антикафе · Казахстан</span>
+        <h3 class="case-name">UseTime — сеть антикафе в&nbsp;Астане и&nbsp;Алматы</h3>
+        <p class="case-did">Сайт на&nbsp;Tilda&nbsp;— лендинг для&nbsp;привлечения гостей, VIP-бронирований и&nbsp;корпоративов. Молодёжная аудитория, формат «оплата за&nbsp;время».</p>
+        <div class="case-quote">Не&nbsp;только онлайн-школы&nbsp;— работаю и&nbsp;с&nbsp;малым бизнесом.</div>
+        <a href="#" class="case-cta" data-magnetic>смотреть сайт →</a>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-mockup"><div class="case-mockup-label">мокап · профориентация</div></div>
+      <div class="case-info">
+        <span class="case-niche">Профориентация подростков</span>
+        <h3 class="case-name">Жанна Кайдарова — поступление в&nbsp;вузы</h3>
+        <p class="case-did">Сайт на&nbsp;Tilda + несколько чат-ботов (воронка). Помогает подросткам 14+ выбрать профессию и&nbsp;поступить в&nbsp;университет, в&nbsp;том числе за&nbsp;рубежом.</p>
+        <a href="#" class="case-cta" data-magnetic>смотреть сайт →</a>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-mockup"><div class="case-mockup-label">мокап · Первое Нянь</div></div>
+      <div class="case-info">
+        <span class="case-niche">Агентство нянь · Крым</span>
+        <h3 class="case-name">«Первое Нянь»&nbsp;— подбор за&nbsp;один день</h3>
+        <p class="case-did">Сайт на&nbsp;Tilda. Подбор проверенных специалистов в&nbsp;Ялте, Симферополе, Севастополе.</p>
+        <div class="case-quote">Клиент в&nbsp;восторге&nbsp;— точно угадала визуал и&nbsp;смогла передать именно то&nbsp;ощущение, которое они хотели.</div>
+        <a href="#" class="case-cta" data-magnetic>смотреть сайт →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- GC VISUAL -->
+<section class="section" id="gc-visual">
+  <div class="section-head">
+    <div class="section-num">— визуал getcourse</div>
+    <h2 class="section-title">Личный кабинет,<br><em>который продаёт</em></h2>
+    <p class="section-sub">Дизайн, который клиенты школы замечают сразу. Нажми — перевернётся.</p>
+  </div>
+  <div class="gc-flip-grid">
+
+    <div class="flip-card" id="gcfc1">
+      <div class="flip-inner">
+        <div class="flip-face">
+          <img src="images/Frame 448.png" alt="Полина — после редизайна">
+          <span class="flip-badge">после</span>
+          <span class="flip-client">Полина Ф. · Школа любви</span>
+          <span class="flip-hint">↺ tap</span>
+        </div>
+        <div class="flip-face flip-back">
+          <img src="images/polina_before.png" alt="Полина — стандартный GetCourse">
+          <span class="flip-badge">до</span>
+          <span class="flip-client">стандартный getcourse</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" id="gcfc2">
+      <div class="flip-inner">
+        <div class="flip-face">
+          <img src="images/Frame 449.png" alt="GetCourse — после редизайна">
+          <span class="flip-badge">после</span>
+          <span class="flip-client">GetCourse · редизайн кабинета</span>
+          <span class="flip-hint">↺ tap</span>
+        </div>
+        <div class="flip-face flip-back">
+          <img src="images/getcorse_before.png" alt="GetCourse — до">
+          <span class="flip-badge">до</span>
+          <span class="flip-client">стандартный getcourse</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="gc-card">
+      <img src="images/3.png" alt="GetCourse визуал — проект 3">
+      <span class="flip-badge">после</span>
+    </div>
+
+    <div class="gc-card">
+      <img src="images/4.png" alt="GetCourse визуал — проект 4">
+      <span class="flip-badge">после</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-head">
+    <div class="section-num">06 — отзывы</div>
+    <h2 class="section-title">Что говорят <em>клиенты</em></h2>
+    <p class="section-sub">Скриншоты реальных переписок из&nbsp;Instagram&nbsp;— я&nbsp;их&nbsp;добавлю отдельно. Пока&nbsp;— цитаты.</p>
+  </div>
+  <div class="testi-grid">
+    <figure class="testi">
+      <span class="testi-screenshot-tag">screenshot · 01</span>
+      <blockquote>Никто не&nbsp;справился с&nbsp;нашей тех-задачей. Валерия единственная, кто&nbsp;сказал: да, я&nbsp;могу, без&nbsp;проблем.</blockquote>
+      <figcaption><span class="t-name">Клиент</span><span>онлайн-школа</span></figcaption>
+    </figure>
+    <figure class="testi">
+      <span class="testi-screenshot-tag">screenshot · 02</span>
+      <blockquote>Сайт получился даже лучше, чем&nbsp;я&nbsp;его для&nbsp;себя представляла. Результат превзошёл ожидания.</blockquote>
+      <figcaption><span class="t-name">Учитель йоги</span><span>tilda · курс</span></figcaption>
+    </figure>
+    <figure class="testi">
+      <span class="testi-screenshot-tag">screenshot · 03</span>
+      <blockquote>Самое важное&nbsp;— скорость выполнения. Всё быстро, чётко и&nbsp;всё работает.</blockquote>
+      <figcaption><span class="t-name">Нутрициолог</span><span>1.5 года вместе</span></figcaption>
+    </figure>
+    <figure class="testi">
+      <span class="testi-screenshot-tag">screenshot · 04</span>
+      <blockquote>Ты&nbsp;точно поняла, что&nbsp;мне нужно&nbsp;— я&nbsp;не&nbsp;могла сказать словами, но&nbsp;получила именно то, что&nbsp;хотела.</blockquote>
+      <figcaption><span class="t-name">Эксперт</span><span>tilda</span></figcaption>
+    </figure>
+    <figure class="testi">
+      <span class="testi-screenshot-tag">screenshot · 05</span>
+      <blockquote>В&nbsp;восторге от&nbsp;скорости и&nbsp;эстетики. После первого сайта перешли на&nbsp;постоянное сотрудничество.</blockquote>
+      <figcaption><span class="t-name">Полина Ф.</span><span>школа любви</span></figcaption>
+    </figure>
+    <figure class="testi">
+      <span class="testi-screenshot-tag">screenshot · 06</span>
+      <blockquote>Сделала даже больше, чем&nbsp;просили. Соблюдение дедлайнов, поиск решений даже если не&nbsp;знала в&nbsp;моменте.</blockquote>
+      <figcaption><span class="t-name">Продюсер</span><span>6 проектов</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- LEAD MAGNET -->
+<section class="lead">
+  <div class="lead-box">
+    <div class="lead-eyebrow">07 — бесплатно</div>
+    <h2 class="lead-title">Не&nbsp;знаете с&nbsp;чего <em>начать</em>?</h2>
+    <p class="lead-text">Проведу бесплатную консультацию&nbsp;— разберём вашу ситуацию, отвечу на&nbsp;вопросы и&nbsp;подскажу с&nbsp;чего начать. Без&nbsp;продаж и&nbsp;давления. Один из&nbsp;клиентов после такого созвона сказал: «Я&nbsp;наконец поняла, куда двигаться»&nbsp;— и&nbsp;мы&nbsp;работаем вместе уже год.</p>
+    <div class="lead-cta">
+      <a href="https://wa.me/+77775481717" class="btn btn-primary" data-magnetic>Записаться · WhatsApp</a>
+      <a href="https://t.me/valeriyavaly" class="btn btn-ghost" data-magnetic>Записаться · Telegram</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="section-head">
+    <div class="section-num">08 — стоимость</div>
+    <h2 class="section-title">Прозрачные <em>цены</em></h2>
+    <p class="section-sub">Открытый прайс&nbsp;— моё конкурентное преимущество. Финальная стоимость зависит от&nbsp;объёма; напишу детальную смету за&nbsp;день.</p>
+  </div>
+  <div class="price-table">
+    <div class="price-row price-head">
+      <span>услуга</span><span>что входит</span><span>тенге</span><span>рубли</span><span>доллар</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Сайт на Tilda</span>
+      <span class="price-incl">Лендинг, домен, платёжки, CRM, базовые интеграции</span>
+      <span class="price-val">от 80&nbsp;000&nbsp;₸</span><span class="price-val">от 15&nbsp;500&nbsp;₽</span><span class="price-val">от $155</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">GetCourse</span>
+      <span class="price-incl">Полная настройка, уроки, доступы, оформление кабинета</span>
+      <span class="price-val">от 150&nbsp;000&nbsp;₸</span><span class="price-val">от 29&nbsp;000&nbsp;₽</span><span class="price-val">от $290</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Чат-бот</span>
+      <span class="price-incl">Воронка, сегментация, интеграция с&nbsp;CRM</span>
+      <span class="price-val">от 50&nbsp;000&nbsp;₸</span><span class="price-val">от 9&nbsp;700&nbsp;₽</span><span class="price-val">от $97</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">ИИ продавец</span>
+      <span class="price-incl">ИИ-агент в&nbsp;WhatsApp/Telegram, обучение под&nbsp;ваш продукт, интеграция с&nbsp;CRM</span>
+      <span class="price-val">от 150&nbsp;000&nbsp;₸</span><span class="price-val">от 29&nbsp;000&nbsp;₽</span><span class="price-val">от $290</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Email/SMS рассылка</span>
+      <span class="price-incl">Цепочки, триггеры, шаблоны, автодозвон</span>
+      <span class="price-val">от 20&nbsp;000&nbsp;₸</span><span class="price-val">от 3&nbsp;900&nbsp;₽</span><span class="price-val">от $39</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Вебинарная воронка</span>
+      <span class="price-incl">Bizon365/Pruffme, регистрация, дожим, автовебинары</span>
+      <span class="price-val">по запросу</span><span class="price-val">по запросу</span><span class="price-val">по запросу</span>
+    </div>
+  </div>
+  <div class="price-cta">
+    <a href="https://wa.me/+77775481717" class="btn btn-primary" data-magnetic>Рассчитать стоимость</a>
+    <span>ответ в течение часа</span>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section contact" id="contact">
+  <h2 class="contact-huge">Давайте обсудим <em>ваш проект</em></h2>
+  <p class="contact-text">Напишите&nbsp;— отвечу быстро. Обсудим задачу, и&nbsp;я&nbsp;скажу, могу&nbsp;ли&nbsp;помочь.</p>
+  <div class="contact-buttons">
+    <a href="https://wa.me/+77775481717" class="btn btn-primary" data-magnetic>Написать в WhatsApp</a>
+    <a href="https://t.me/valeriyavaly" class="btn btn-ghost" data-magnetic>Написать в Telegram</a>
+  </div>
+  <div class="contact-socials">
+    <a href="https://www.instagram.com/valeriyavaly" data-magnetic>Instagram ↗</a>
+    <a href="mailto:krivko.valeriya@gmail.com" data-magnetic>Email ↗</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div>
+      <span class="foot-name">Валерия Кривко</span>
+      <span class="foot-role">технический специалист · онлайн-школы</span>
+    </div>
+    <div class="foot-clock" id="footClock">--:--:--</div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 · valeriyakrivko.kz</span>
+    <span>made with care, not tilda templates</span>
+  </div>
+</footer>
+
+</main>
+
+<!-- Floating WA/TG -->
+<div class="float-cta">
+  <a href="https://wa.me/+77775481717" class="float-btn" title="WhatsApp" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zM21.49 2.51A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.555 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.453-8.41z"/></svg>
+  </a>
+  <a href="https://t.me/valeriyavaly" class="float-btn" title="Telegram" aria-label="Telegram">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+  </a>
+</div>
+
+<aside class="tweaks" id="tweaks" hidden>
+  <header class="tw-head">
+    <span>Tweaks</span>
+    <button id="twClose" class="tw-x">×</button>
+  </header>
+  <div class="tw-body">
+    <div class="tw-label">Зелёный · hue <span id="twHueVal">130</span></div>
+    <input type="range" id="twHue" min="80" max="200" step="1" value="130">
+    <div class="tw-label">Насыщенность · <span id="twSatVal">0.20</span></div>
+    <input type="range" id="twSat" min="0.04" max="0.30" step="0.01" value="0.20">
+    <div class="tw-label">Яркость · <span id="twLitVal">0.78</span></div>
+    <input type="range" id="twLit" min="0.30" max="0.95" step="0.01" value="0.78">
+    <div class="tw-label">Кастомный курсор</div>
+    <label class="tw-switch"><input type="checkbox" id="twCursor" checked><span>вкл / выкл</span></label>
+  </div>
+</aside>
+
+<script>
+const state = Object.assign({ greenHue: 130, greenSat: 0.20, greenLit: 0.78, showCustomCursor: true }, window.TWEAKS || {});
+const root = document.documentElement;
+const body = document.body;
+
+function applyState() {
+  root.style.setProperty("--g-hue", state.greenHue);
+  root.style.setProperty("--g-sat", state.greenSat);
+  root.style.setProperty("--g-lit", state.greenLit);
+  body.classList.toggle("cursor-on", !!state.showCustomCursor);
+  setVal("twHue", state.greenHue); setVal("twSat", state.greenSat); setVal("twLit", state.greenLit);
+  setText("twHueVal", state.greenHue); setText("twSatVal", Number(state.greenSat).toFixed(2)); setText("twLitVal", Number(state.greenLit).toFixed(2));
+  const c = document.getElementById("twCursor"); if (c) c.checked = state.showCustomCursor;
+}
+function setVal(id,v){const e=document.getElementById(id);if(e)e.value=v;}
+function setText(id,t){const e=document.getElementById(id);if(e)e.textContent=t;}
+function pushEdits(edits){try{window.parent.postMessage({type:"__edit_mode_set_keys",edits},"*");}catch(e){}}
+applyState();
+
+window.addEventListener("message",(e)=>{
+  const d=e.data||{};
+  if(d.type==="__activate_edit_mode"){document.getElementById("tweaks").hidden=false;const fab=document.getElementById("twFab");if(fab)fab.style.display="none";}
+  else if(d.type==="__deactivate_edit_mode"){document.getElementById("tweaks").hidden=true;const fab=document.getElementById("twFab");if(fab)fab.style.display="";}
+});
+try{window.parent.postMessage({type:"__edit_mode_available"},"*");}catch(e){}
+
+(function installFab(){
+  const fab=document.createElement("button");
+  fab.id="twFab";fab.className="tw-fab";fab.title="Tweaks";
+  fab.innerHTML=`<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><circle cx='12' cy='12' r='3'/><path d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z'/></svg>`;
+  fab.addEventListener("click",()=>{const t=document.getElementById("tweaks");t.hidden=!t.hidden;fab.style.display=t.hidden?"":"none";});
+  document.body.appendChild(fab);
+})();
+
+const onSlide=(id,key,t=Number)=>{const e=document.getElementById(id);if(!e)return;e.addEventListener("input",()=>{state[key]=t(e.value);applyState();const ed={};ed[key]=state[key];pushEdits(ed);});};
+onSlide("twHue","greenHue",Number);onSlide("twSat","greenSat",parseFloat);onSlide("twLit","greenLit",parseFloat);
+const twCursor=document.getElementById("twCursor");
+if(twCursor)twCursor.addEventListener("change",()=>{state.showCustomCursor=twCursor.checked;applyState();pushEdits({showCustomCursor:state.showCustomCursor});});
+const twClose=document.getElementById("twClose");
+if(twClose)twClose.addEventListener("click",()=>{document.getElementById("tweaks").hidden=true;const fab=document.getElementById("twFab");if(fab)fab.style.display="";});
+
+// Burger menu
+(function burger(){
+  const btn=document.getElementById("burger"),nav=document.getElementById("navMobile");
+  if(!btn||!nav)return;
+  function close(){btn.classList.remove("open");nav.classList.remove("open");btn.setAttribute("aria-expanded","false");document.body.style.overflow="";}
+  btn.addEventListener("click",()=>{const open=btn.classList.toggle("open");nav.classList.toggle("open",open);btn.setAttribute("aria-expanded",open);document.body.style.overflow=open?"hidden":"";});
+  nav.querySelectorAll(".nav-m-link").forEach(a=>a.addEventListener("click",close));
+  nav.querySelectorAll(".btn").forEach(a=>a.addEventListener("click",close));
+})();
+
+// Cursor with magnetic
+(function cursor(){
+  const ring=document.getElementById("cursor"),dot=document.getElementById("cursorDot");
+  if(!ring||!dot)return;
+  let tx=0,ty=0,rx=0,ry=0,dx=0,dy=0,magnetTarget=null,magnetRect=null;
+  window.addEventListener("mousemove",e=>{tx=e.clientX;ty=e.clientY;});
+  document.querySelectorAll("[data-magnetic]").forEach(el=>{
+    el.addEventListener("mouseenter",()=>{magnetTarget=el;magnetRect=el.getBoundingClientRect();body.classList.add("cursor-hover");});
+    el.addEventListener("mouseleave",()=>{magnetTarget=null;magnetRect=null;body.classList.remove("cursor-hover");el.style.transform="";});
+  });
+  function tick(){
+    if(magnetTarget&&magnetRect){
+      magnetRect=magnetTarget.getBoundingClientRect();
+      const cx=magnetRect.left+magnetRect.width/2,cy=magnetRect.top+magnetRect.height/2;
+      const ddx=(tx-cx)*0.25,ddy=(ty-cy)*0.25;
+      magnetTarget.style.transform=`translate(${ddx}px,${ddy}px)`;
+      rx+=(cx+ddx-rx)*0.2;ry+=(cy+ddy-ry)*0.2;
+    } else { rx+=(tx-rx)*0.18;ry+=(ty-ry)*0.18; }
+    dx+=(tx-dx)*0.55;dy+=(ty-dy)*0.55;
+    ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+    dot.style.transform=`translate(${dx}px,${dy}px) translate(-50%,-50%)`;
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+// Footer clock
+(function clock(){
+  const el=document.getElementById("footClock");if(!el)return;
+  function tick(){
+    const now=new Date(),utc=now.getTime()+now.getTimezoneOffset()*60000,samui=new Date(utc+7*3600000),p=n=>String(n).padStart(2,"0");
+    el.textContent=`🌴 SAMUI · ${p(samui.getHours())}:${p(samui.getMinutes())}:${p(samui.getSeconds())}`;
+  }
+  tick();setInterval(tick,1000);
+})();
+
+// GC flip cards auto-rotate
+(function gcFlip(){
+  const cards=document.querySelectorAll('.flip-card');
+  if(!cards.length)return;
+  cards.forEach((card,i)=>{
+    let iv;
+    function start(){iv=setInterval(()=>card.classList.toggle('flipped'),3500);}
+    setTimeout(start,i*1600);
+    card.addEventListener('mouseenter',()=>clearInterval(iv));
+    card.addEventListener('mouseleave',()=>start());
+    card.addEventListener('click',()=>card.classList.toggle('flipped'));
+  });
+})();
+
+// Preview bar
+(function previewBar(){
+  if(window.self!==window.top){
+    const pb=document.getElementById("preview-bar"),ps=document.getElementById("preview-stage");
+    if(pb)pb.remove();if(ps)ps.remove();
+    return;
+  }
+  document.body.classList.add("has-preview-bar");
+  const stage=document.getElementById("preview-stage"),dev=document.getElementById("preview-device"),
+        iframe=document.getElementById("preview-iframe"),btns=document.querySelectorAll(".pb-btn");
+  let loaded=false;
+  btns.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      btns.forEach(b=>b.classList.remove("pb-active"));
+      btn.classList.add("pb-active");
+      const d=btn.dataset.device;
+      if(d==="desktop"){
+        stage.classList.remove("pb-show");
+      } else {
+        dev.className="dev-"+d;
+        if(!loaded){iframe.src=window.location.href.split("#")[0];loaded=true;}
+        stage.classList.add("pb-show");
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
