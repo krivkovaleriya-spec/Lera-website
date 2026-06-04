@@ -527,45 +527,10 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 .gc-card img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
 @media(max-width:768px){ .gc-flip-grid { grid-template-columns:1fr; } .flip-card { aspect-ratio:4/3; } }
 
-/* ===== PREVIEW BAR ===== */
-#preview-bar { position:fixed; top:0; left:0; right:0; z-index:99999; height:48px; background:#0c0c0c; border-bottom:1px solid rgba(255,255,255,.07); display:flex; align-items:center; justify-content:center; gap:4px; font-family:var(--f-mono); }
-.pb-label { font-size:10px; color:var(--fg-mute); letter-spacing:.15em; text-transform:uppercase; padding-right:12px; border-right:1px solid rgba(255,255,255,.08); margin-right:8px; }
-.pb-btn { display:inline-flex; align-items:center; gap:6px; padding:5px 14px; border:1px solid transparent; color:var(--fg-mute); background:none; cursor:pointer; font-family:var(--f-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; transition:all .18s; }
-.pb-btn:hover { color:var(--fg); }
-.pb-btn.pb-active { color:var(--green); border-color:rgba(124,217,87,.35); background:rgba(124,217,87,.05); }
-.pb-btn svg { width:14px; height:14px; flex-shrink:0; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
-body.has-preview-bar .topbar { top:48px; }
-#preview-stage { display:none; position:fixed; inset:48px 0 0 0; z-index:9998; background:#0f0f0f; align-items:flex-start; justify-content:center; overflow:auto; padding:32px 24px; }
-#preview-stage.pb-show { display:flex; }
-#preview-device { flex-shrink:0; display:flex; flex-direction:column; height:calc(100vh - 112px); }
-#preview-device.dev-mobile { width:390px; border:10px solid #1c1c1c; border-radius:48px; box-shadow:inset 0 0 0 1.5px #303030, 0 40px 120px rgba(0,0,0,.9); }
-#preview-device.dev-tablet { width:1024px; border:8px solid #1c1c1c; border-radius:18px; box-shadow:inset 0 0 0 1.5px #303030, 0 32px 80px rgba(0,0,0,.8); }
-.pb-notch { height:28px; background:#0a0a0a; flex-shrink:0; position:relative; display:none; }
-.pb-notch::after { content:""; position:absolute; top:9px; left:50%; transform:translateX(-50%); width:80px; height:8px; background:#1e1e1e; border-radius:4px; }
-#preview-device.dev-mobile .pb-notch { display:block; }
-#preview-iframe { display:block; width:100%; flex:1; min-height:0; border:none; background:#0a0a0a; }
 </style>
 </head>
 <body>
 
-<div id="preview-bar">
-  <span class="pb-label">preview</span>
-  <button class="pb-btn pb-active" data-device="desktop">
-    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Desktop
-  </button>
-  <button class="pb-btn" data-device="tablet">
-    <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="18.5" r="1"/></svg>Tablet · 1024
-  </button>
-  <button class="pb-btn" data-device="mobile">
-    <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18.5" r="1"/></svg>Mobile · 390
-  </button>
-</div>
-<div id="preview-stage">
-  <div id="preview-device">
-    <div class="pb-notch"></div>
-    <iframe id="preview-iframe" title="Предпросмотр"></iframe>
-  </div>
-</div>
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-dot" id="cursorDot"></div>
@@ -1386,32 +1351,6 @@ if(twClose)twClose.addEventListener("click",()=>{document.getElementById("tweaks
   });
 })();
 
-// Preview bar
-(function previewBar(){
-  if(window.self!==window.top){
-    const pb=document.getElementById("preview-bar"),ps=document.getElementById("preview-stage");
-    if(pb)pb.remove();if(ps)ps.remove();
-    return;
-  }
-  document.body.classList.add("has-preview-bar");
-  const stage=document.getElementById("preview-stage"),dev=document.getElementById("preview-device"),
-        iframe=document.getElementById("preview-iframe"),btns=document.querySelectorAll(".pb-btn");
-  let loaded=false;
-  btns.forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      btns.forEach(b=>b.classList.remove("pb-active"));
-      btn.classList.add("pb-active");
-      const d=btn.dataset.device;
-      if(d==="desktop"){
-        stage.classList.remove("pb-show");
-      } else {
-        dev.className="dev-"+d;
-        if(!loaded){iframe.src=window.location.href.split("#")[0];loaded=true;}
-        stage.classList.add("pb-show");
-      }
-    });
-  });
-})();
 </script>
 </body>
 </html>
