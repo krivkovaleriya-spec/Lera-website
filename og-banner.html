@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  background: #0a0a0a;
+  color: #f0f0e8;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.banner {
+  width: 1200px;
+  height: 630px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 72px 96px;
+  overflow: hidden;
+}
+
+/* Сетка фона */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Зелёный градиент-свет справа */
+.glow {
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.78 0.20 130), transparent 65%);
+  opacity: 0.13;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* Линия слева */
+.accent-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: oklch(0.78 0.20 130);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+}
+
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: oklch(0.78 0.20 130);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  margin-bottom: 28px;
+}
+
+.name {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: .95;
+  letter-spacing: -.03em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.name em {
+  font-style: normal;
+  color: oklch(0.78 0.20 130);
+}
+
+.role {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #a8a9a3;
+  margin-bottom: 44px;
+  max-width: 560px;
+  line-height: 1.4;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: #a8a9a3;
+  padding: 7px 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  letter-spacing: .04em;
+}
+
+.tag.tag-green {
+  border-color: oklch(0.78 0.20 130);
+  color: oklch(0.78 0.20 130);
+}
+
+/* Правая часть */
+.right {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+  padding: 8px 0;
+  min-width: 220px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-end;
+}
+
+.stat-val {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  color: oklch(0.78 0.20 130);
+  letter-spacing: -.03em;
+  text-align: right;
+}
+
+.stat-lab {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: #5a5b56;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.domain {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  color: #5a5b56;
+  letter-spacing: .06em;
+  text-transform: lowercase;
+}
+
+/* Уголки */
+.corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: rgba(255,255,255,.15);
+  border-style: solid;
+}
+.corner-tl { top: 24px; left: 24px; border-width: 1px 0 0 1px; }
+.corner-tr { top: 24px; right: 24px; border-width: 1px 1px 0 0; }
+.corner-bl { bottom: 24px; left: 24px; border-width: 0 0 1px 1px; }
+.corner-br { bottom: 24px; right: 24px; border-width: 0 1px 1px 0; }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="grid"></div>
+  <div class="glow"></div>
+  <div class="accent-line"></div>
+
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+  <div class="content">
+    <div class="eyebrow">· технический специалист ·</div>
+    <div class="name">Валерия<br><em>Кривко</em></div>
+    <div class="role">Tilda · GetCourse · ИИ-продавцы<br>Онлайн-школы, бизнес, эксперты</div>
+    <div class="tags">
+      <span class="tag tag-green">ИИ-продавец в WhatsApp</span>
+      <span class="tag">Сайты на Tilda</span>
+      <span class="tag">GetCourse</span>
+      <span class="tag">n8n</span>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="stats">
+      <div>
+        <div class="stat-val">50+</div>
+        <div class="stat-lab">проектов</div>
+      </div>
+      <div>
+        <div class="stat-val">10+</div>
+        <div class="stat-lab">лет в IT</div>
+      </div>
+    </div>
+    <div class="domain">valeriyakrivko.kz</div>
+  </div>
+
+</div>
+</body>
+</html>
