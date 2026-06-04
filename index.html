@@ -156,13 +156,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script>
-const TWEAKS = /*EDITMODE-BEGIN*/{
-  "greenHue": 130,
-  "greenSat": 0.2,
-  "greenLit": 0.78,
-  "showCustomCursor": true
-}/*EDITMODE-END*/;
 </script>
 <style>
 *, *::before, *::after { box-sizing: border-box; }
@@ -426,17 +419,6 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 .float-btn:hover { transform: scale(1.08); }
 .float-btn svg { width:26px; height:26px; }
 
-/* Tweaks panel */
-.tweaks { position:fixed; bottom:20px; right:20px; width:300px; background:#0b0b0b; border:1px solid var(--green); color:#eee; font-family:"JetBrains Mono",monospace; font-size:12px; z-index:9998; box-shadow:0 20px 60px rgba(0,0,0,.5); }
-.tw-head { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border-bottom:1px solid var(--line-2); text-transform:uppercase; letter-spacing:.12em; }
-.tw-x { font-size:20px; line-height:1; color:#aaa; }
-.tw-body { padding:16px; display:flex; flex-direction:column; gap:14px; }
-.tw-label { text-transform:uppercase; letter-spacing:.08em; color:#888; font-size:11px; }
-.tw-body input[type=range] { width:100%; accent-color:var(--green); }
-.tw-switch { display:flex; align-items:center; gap:10px; color:#ccc; }
-.tw-switch input { accent-color:var(--green); }
-.tw-fab { position:fixed; bottom:20px; right:20px; width:48px; height:48px; border-radius:50%; background:var(--bg-2); border:1px solid var(--green); color:var(--green); display:grid; place-items:center; z-index:9997; cursor:pointer; }
-.tw-fab svg { width:20px; height:20px; }
 
 /* ===== HAMBURGER ===== */
 .burger { display:none; flex-direction:column; gap:5px; padding:6px; cursor:pointer; }
@@ -1233,63 +1215,9 @@ body.cursor-hover .cursor { width:64px; height:64px; }
   </a>
 </div>
 
-<aside class="tweaks" id="tweaks" hidden>
-  <header class="tw-head">
-    <span>Tweaks</span>
-    <button id="twClose" class="tw-x">×</button>
-  </header>
-  <div class="tw-body">
-    <div class="tw-label">Зелёный · hue <span id="twHueVal">130</span></div>
-    <input type="range" id="twHue" min="80" max="200" step="1" value="130">
-    <div class="tw-label">Насыщенность · <span id="twSatVal">0.20</span></div>
-    <input type="range" id="twSat" min="0.04" max="0.30" step="0.01" value="0.20">
-    <div class="tw-label">Яркость · <span id="twLitVal">0.78</span></div>
-    <input type="range" id="twLit" min="0.30" max="0.95" step="0.01" value="0.78">
-    <div class="tw-label">Кастомный курсор</div>
-    <label class="tw-switch"><input type="checkbox" id="twCursor" checked><span>вкл / выкл</span></label>
-  </div>
-</aside>
 
 <script>
-const state = Object.assign({ greenHue: 130, greenSat: 0.20, greenLit: 0.78, showCustomCursor: true }, window.TWEAKS || {});
-const root = document.documentElement;
-const body = document.body;
-
-function applyState() {
-  root.style.setProperty("--g-hue", state.greenHue);
-  root.style.setProperty("--g-sat", state.greenSat);
-  root.style.setProperty("--g-lit", state.greenLit);
-  body.classList.toggle("cursor-on", !!state.showCustomCursor);
-  setVal("twHue", state.greenHue); setVal("twSat", state.greenSat); setVal("twLit", state.greenLit);
-  setText("twHueVal", state.greenHue); setText("twSatVal", Number(state.greenSat).toFixed(2)); setText("twLitVal", Number(state.greenLit).toFixed(2));
-  const c = document.getElementById("twCursor"); if (c) c.checked = state.showCustomCursor;
-}
-function setVal(id,v){const e=document.getElementById(id);if(e)e.value=v;}
-function setText(id,t){const e=document.getElementById(id);if(e)e.textContent=t;}
-function pushEdits(edits){try{window.parent.postMessage({type:"__edit_mode_set_keys",edits},"*");}catch(e){}}
-applyState();
-
-window.addEventListener("message",(e)=>{
-  const d=e.data||{};
-  if(d.type==="__activate_edit_mode"){document.getElementById("tweaks").hidden=false;const fab=document.getElementById("twFab");if(fab)fab.style.display="none";}
-  else if(d.type==="__deactivate_edit_mode"){document.getElementById("tweaks").hidden=true;const fab=document.getElementById("twFab");if(fab)fab.style.display="";}
-});
-try{window.parent.postMessage({type:"__edit_mode_available"},"*");}catch(e){}
-
-(function installFab(){
-  const fab=document.createElement("button");
-  fab.id="twFab";fab.className="tw-fab";fab.title="Tweaks";
-  fab.innerHTML=`<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><circle cx='12' cy='12' r='3'/><path d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z'/></svg>`;
-  fab.addEventListener("click",()=>{const t=document.getElementById("tweaks");t.hidden=!t.hidden;fab.style.display=t.hidden?"":"none";});
-  document.body.appendChild(fab);
-})();
-
-const onSlide=(id,key,t=Number)=>{const e=document.getElementById(id);if(!e)return;e.addEventListener("input",()=>{state[key]=t(e.value);applyState();const ed={};ed[key]=state[key];pushEdits(ed);});};
-onSlide("twHue","greenHue",Number);onSlide("twSat","greenSat",parseFloat);onSlide("twLit","greenLit",parseFloat);
-const twCursor=document.getElementById("twCursor");
-if(twCursor)twCursor.addEventListener("change",()=>{state.showCustomCursor=twCursor.checked;applyState();pushEdits({showCustomCursor:state.showCustomCursor});});
-const twClose=document.getElementById("twClose");
-if(twClose)twClose.addEventListener("click",()=>{document.getElementById("tweaks").hidden=true;const fab=document.getElementById("twFab");if(fab)fab.style.display="";});
+document.body.classList.add("cursor-on");
 
 // Burger menu
 (function burger(){
