@@ -352,6 +352,14 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 .testi { margin:0; padding:32px; border:1px solid var(--line); background:var(--bg-2); display:flex; flex-direction:column; gap:24px; transition:border-color .3s; min-height: 240px; }
 .testi:hover { border-color:var(--green); }
 .testi-screenshot-tag { display:inline-flex; align-self:flex-start; padding:4px 10px; background:var(--green); color:var(--bg); font-family:var(--f-mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em; }
+.testi-screenshot-btn { cursor:pointer; gap:4px; transition:opacity .2s; }
+.testi-screenshot-btn:hover { opacity:.8; }
+/* Lightbox */
+.lb-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.85); z-index:9999; align-items:center; justify-content:center; padding:20px; }
+.lb-overlay.lb-open { display:flex; }
+.lb-overlay img { max-width:min(480px,90vw); max-height:90vh; object-fit:contain; border-radius:4px; }
+.lb-close { position:fixed; top:20px; right:24px; color:#fff; font-size:32px; line-height:1; cursor:pointer; opacity:.7; font-family:var(--f-mono); }
+.lb-close:hover { opacity:1; }
 .testi blockquote { margin:0; font-family:var(--f-display); font-size:clamp(17px, 1.4vw, 20px); font-weight:500; line-height:1.4; letter-spacing:-.01em; }
 .testi blockquote::before { content:"❝ "; color: var(--green); }
 .testi figcaption { display:flex; justify-content:space-between; font-family:var(--f-mono); font-size:12px; color:var(--fg-dim); text-transform:uppercase; letter-spacing:.06em; margin-top:auto; }
@@ -674,7 +682,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
   <div class="section-head">
     <div class="section-num">03 — услуги</div>
     <h2 class="section-title">Весь технический <em>стек</em></h2>
-    <p class="section-sub">Не&nbsp;нужно искать 5&nbsp;разных специалистов&nbsp;— закрываю всю техническую часть. Онлайн-школы, эксперты, малый бизнес.</p>
+    <p class="section-sub">Не&nbsp;нужно искать 5&nbsp;разных специалистов&nbsp;— закрываю всю техническую часть.</p>
   </div>
   <div class="svc-grid">
     <div class="svc-card">
@@ -720,7 +728,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
         <div class="svc-card-num">/08 · флагман</div>
         <div class="svc-card-title">ИИ&nbsp;продавец</div>
       </div>
-      <div class="svc-card-desc">Умный ИИ-агент, который общается с&nbsp;клиентами в&nbsp;WhatsApp или&nbsp;Telegram: отвечает, выявляет потребности, ведёт к&nbsp;покупке&nbsp;— 24/7 без&nbsp;вашего участия.</div>
+      <div class="svc-card-desc">Умный ИИ-агент, который общается с&nbsp;клиентами в&nbsp;WhatsApp или&nbsp;Telegram: отвечает, выявляет потребности, ведёт к&nbsp;покупке&nbsp;— 24/7 без&nbsp;вашего участия. Интеграция с&nbsp;CRM.</div>
     </div>
   </div>
 </section>
@@ -779,7 +787,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
       <div class="case-info">
         <span class="case-niche">Продюсер онлайн-школ · 8 проектов</span>
         <h3 class="case-name">«Энергия на&nbsp;миллион» и&nbsp;ещё 7&nbsp;проектов</h3>
-        <p class="case-did">Сайты на&nbsp;Tilda, настройка GetCourse, автоворонки, техническое сопровождение запусков нескольких экспертов одновременно. На&nbsp;скрине&nbsp;— курс восстановления ресурса с&nbsp;тремя экспертами (нутрициолог, психолог, арт-терапевт).</p>
+        <p class="case-did">Работаем с&nbsp;продюсером больше года, 8&nbsp;совместных запусков для разных экспертов&nbsp;— с&nbsp;нуля были созданы сайт на&nbsp;Tilda&nbsp;+ обучающий курс.</p>
         <div class="case-quote">В&nbsp;восторге от&nbsp;качества и&nbsp;скорости реализации. Работаем на&nbsp;постоянной основе.</div>
         <a href="https://pulsemillion.space/" target="_blank" rel="noopener" class="case-cta" data-magnetic>смотреть сайт →</a>
       </div>
@@ -823,7 +831,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
       <div class="case-info">
         <span class="case-niche">Психолог · 8500+ участниц · 40 стран</span>
         <h3 class="case-name">Полина Федотенкова — «Школа Любви»</h3>
-        <p class="case-did">Два сайта на&nbsp;Tilda: лендинг курса «Встреча Любви» и&nbsp;лендинг «Школы любви» (клубная подписка). Стильное оформление личного кабинета и&nbsp;страниц курсов на&nbsp;GetCourse.</p>
+        <p class="case-did">Два сайта на&nbsp;Tilda: лендинг курса «Встреча Любви» и&nbsp;лендинг «Школы любви» (клубная подписка). Стильное оформление личного кабинета и&nbsp;страниц курсов на&nbsp;GetCourse. Вебинарная воронка на&nbsp;Salebot, полное сопровождение Школы на&nbsp;GetCourse&nbsp;— долгосрочное сотрудничество.</p>
         <div class="case-quote">В&nbsp;восторге от&nbsp;скорости и&nbsp;эстетики. После первого сайта перешли на&nbsp;постоянное сотрудничество.</div>
         <a href="https://fedotenkovapolina.ru/meetlove" target="_blank" rel="noopener" class="case-cta" data-magnetic>смотреть сайт →</a>
       </div>
@@ -1027,7 +1035,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
   </div>
   <div class="testi-grid">
     <figure class="testi">
-      <span class="testi-screenshot-tag">screenshot · 01</span>
+      <span class="testi-screenshot-tag testi-screenshot-btn" data-src="https://raw.githubusercontent.com/krivkovaleriya-spec/Lera-website/main/feedback/Instagram%20story%20-%2014.jpg" title="Посмотреть скриншот">screenshot · 01 ↗</span>
       <blockquote>Никто не&nbsp;справился с&nbsp;нашей тех-задачей. Валерия единственная, кто&nbsp;сказал: да, я&nbsp;могу, без&nbsp;проблем.</blockquote>
       <figcaption><span class="t-name">Клиент</span><span>онлайн-школа</span></figcaption>
     </figure>
@@ -1277,6 +1285,26 @@ document.body.classList.add("cursor-on");
     card.addEventListener('mouseleave',()=>start());
     card.addEventListener('click',()=>card.classList.toggle('flipped'));
   });
+})();
+
+// Lightbox for testimonial screenshots
+(function(){
+  const overlay = document.createElement('div');
+  overlay.className = 'lb-overlay';
+  overlay.innerHTML = '<span class="lb-close">×</span><img src="" alt="Скриншот отзыва">';
+  document.body.appendChild(overlay);
+  const img = overlay.querySelector('img');
+  const close = overlay.querySelector('.lb-close');
+  document.querySelectorAll('.testi-screenshot-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      img.src = btn.dataset.src;
+      overlay.classList.add('lb-open');
+    });
+  });
+  function closeLb(){ overlay.classList.remove('lb-open'); img.src=''; }
+  close.addEventListener('click', closeLb);
+  overlay.addEventListener('click', e => { if(e.target === overlay) closeLb(); });
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeLb(); });
 })();
 
 </script>
