@@ -352,8 +352,14 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 .testi { margin:0; padding:32px; border:1px solid var(--line); background:var(--bg-2); display:flex; flex-direction:column; gap:24px; transition:border-color .3s; min-height: 240px; }
 .testi:hover { border-color:var(--green); }
 .testi-screenshot-tag { display:inline-flex; align-self:flex-start; padding:4px 10px; background:var(--green); color:var(--bg); font-family:var(--f-mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em; }
-.testi-screenshot-btn { cursor:pointer; gap:4px; transition:opacity .2s; }
+.testi-screenshot-btn { cursor:pointer; gap:6px; transition:opacity .2s; position:relative; padding-right:22px; }
 .testi-screenshot-btn:hover { opacity:.8; }
+.testi-screenshot-btn::after { content:'👆'; position:absolute; right:-2px; top:50%; transform:translateY(-50%); font-size:13px; animation:tap-hint 1.4s ease-in-out infinite; }
+@keyframes tap-hint {
+  0%,100% { transform:translateY(-50%) scale(1); opacity:1; }
+  40% { transform:translateY(-60%) scale(1.2); opacity:.7; }
+  60% { transform:translateY(-50%) scale(.95); opacity:1; }
+}
 /* Lightbox */
 .lb-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.85); z-index:9999; align-items:center; justify-content:center; padding:20px; }
 .lb-overlay.lb-open { display:flex; }
