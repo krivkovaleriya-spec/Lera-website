@@ -445,7 +445,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 
 .nav-mobile { display:none; position:fixed; inset:0; background:var(--bg); z-index:48; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
 .nav-mobile.open { display:flex; }
-.nav-mobile a { font-family:var(--f-display); font-size:clamp(28px,7vw,44px); font-weight:700; text-transform:uppercase; letter-spacing:-.025em; color:var(--fg); transition:color .2s; }
+.nav-mobile a { font-family:var(--f-display); font-size:clamp(18px,4vw,26px); font-weight:400; text-transform:uppercase; letter-spacing:.02em; color:var(--fg); transition:color .2s; }
 .nav-mobile a:hover { color:var(--green); }
 .nav-mobile-cta { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:16px; }
 
@@ -731,11 +731,9 @@ body.cursor-hover .cursor { width:64px; height:64px; }
       </div>
       <div class="svc-card-desc">Нестандартные задачи, где&nbsp;нет готового решения.<br><br>Интеграции с&nbsp;разными системами по&nbsp;API<br><br>Один из&nbsp;реализованных кейсов для&nbsp;крупной онлайн-школы:<br>Каскадная скидка на&nbsp;Tilda: чем&nbsp;больше продуктов в&nbsp;корзине&nbsp;— тем&nbsp;ниже цена. После выбора&nbsp;— передача в&nbsp;GetCourse через API: создание заказа, проброс итоговой цены, UTM-меток и&nbsp;выбранных продуктов. Реализация на&nbsp;JavaScript&nbsp;+&nbsp;HTML&nbsp;+&nbsp;n8n.</div>
     </div>
-    <div class="svc-card svc-card-wide">
-      <div>
-        <div class="svc-card-num">/08 · флагман</div>
-        <div class="svc-card-title">ИИ&nbsp;продавец</div>
-      </div>
+    <div class="svc-card">
+      <div class="svc-card-num">/08 · <span class="svc-flag">флагман</span></div>
+      <div class="svc-card-title">ИИ&nbsp;продавец</div>
       <div class="svc-card-desc">Умный ИИ-агент, который общается с&nbsp;клиентами в&nbsp;WhatsApp или&nbsp;Telegram: отвечает, выявляет потребности, ведёт к&nbsp;покупке&nbsp;— 24/7 без&nbsp;вашего участия. Интеграция с&nbsp;CRM.</div>
     </div>
   </div>
@@ -1045,12 +1043,12 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     <figure class="testi">
       <span class="testi-screenshot-tag testi-screenshot-btn" data-src="images/feedback/Instagram story - 19.jpg" title="Посмотреть отзыв">Отзыв клиента<svg class="testi-hand" width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
       <blockquote>До&nbsp;вас два разработчика не&nbsp;смогли решить задачу. А&nbsp;вы сделали ВАУ-эффект. Три недели от&nbsp;старта до&nbsp;первой продажи&nbsp;— бот ведёт диалог лучше, чем менеджер по&nbsp;продажам.</blockquote>
-      <figcaption><span class="t-name">Заказчик</span><span>малый бизнес · ии-продавец</span></figcaption>
+      <figcaption><span class="t-name">Малый бизнес</span><span>ии-продавец</span></figcaption>
     </figure>
     <figure class="testi">
       <span class="testi-screenshot-tag testi-screenshot-btn" data-src="images/feedback/Instagram story - 14.jpg" title="Посмотреть отзыв">Отзыв клиента<svg class="testi-hand" width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
       <blockquote>Никто не&nbsp;справился с&nbsp;нашей тех-задачей. Валерия единственная, кто&nbsp;сказал: да, я&nbsp;могу, без&nbsp;проблем.</blockquote>
-      <figcaption><span class="t-name">Клиент</span><span>онлайн-школа</span></figcaption>
+      <figcaption><span class="t-name">Продюсер</span><span>разработка бота</span></figcaption>
     </figure>
     <figure class="testi">
       <span class="testi-screenshot-tag testi-screenshot-btn" data-src="images/feedback/Instagram story - 17.jpg" title="Посмотреть отзыв">Отзыв клиента<svg class="testi-hand" width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
@@ -1065,7 +1063,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     <figure class="testi">
       <span class="testi-screenshot-tag testi-screenshot-btn" data-src="images/feedback/Instagram story - 15.jpg" title="Посмотреть отзыв">Отзыв клиента<svg class="testi-hand" width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
       <blockquote>На&nbsp;саму запись я&nbsp;шла с&nbsp;полным пониманием что и&nbsp;как будет — очень важно не&nbsp;отвлекаться на&nbsp;тех.&nbsp;часть. Очень благодарна за&nbsp;работу, будем сотрудничать дальше.</blockquote>
-      <figcaption><span class="t-name">Полина Ф.</span><span>автовебинар</span></figcaption>
+      <figcaption><span class="t-name">Астролог</span><span>автовебинар</span></figcaption>
     </figure>
     <figure class="testi">
       <span class="testi-screenshot-tag testi-screenshot-btn" data-src="images/feedback/Instagram story - 12.jpg" title="Посмотреть отзыв">Отзыв клиента<svg class="testi-hand" width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
@@ -1182,11 +1180,11 @@ body.cursor-hover .cursor { width:64px; height:64px; }
       <div class="faq-a">От&nbsp;150&nbsp;000&nbsp;₸ (≈29&nbsp;000&nbsp;₽ или $290). Входит: настройка домена, структура курсов и&nbsp;тренингов, тарифы и&nbsp;доступы, интеграция с&nbsp;платёжными системами, кастомный визуал личного кабинета. Передача с&nbsp;инструктажем — вы&nbsp;сразу знаете, как&nbsp;управлять платформой.</div>
     </details>
     <details class="faq-item">
-      <summary class="faq-q">За&nbsp;сколько дней делается сайт на&nbsp;Tilda?<span class="faq-q-mark">+</span></summary>
+      <summary class="faq-q">За сколько дней делается сайт на&nbsp;Tilda?<span class="faq-q-mark">+</span></summary>
       <div class="faq-a">Лендинг&nbsp;— от&nbsp;3&nbsp;до&nbsp;7&nbsp;дней после получения всех материалов. Многостраничный сайт&nbsp;— от&nbsp;7&nbsp;до&nbsp;14&nbsp;дней. Сроки зависят от&nbsp;объёма и&nbsp;скорости согласования. Скорость&nbsp;— одно из&nbsp;главных отличий, которое клиенты отмечают в&nbsp;отзывах.</div>
     </details>
     <details class="faq-item">
-      <summary class="faq-q">Работаете&nbsp;ли с&nbsp;клиентами из&nbsp;России?<span class="faq-q-mark">+</span></summary>
+      <summary class="faq-q">Работаете ли с&nbsp;клиентами из&nbsp;России?<span class="faq-q-mark">+</span></summary>
       <div class="faq-a">Да, работаю полностью удалённо с&nbsp;клиентами из&nbsp;любой точки мира. Среди текущих клиентов&nbsp;— Казахстан, Россия, Великобритания, Таиланд, Кипр. Оплата в&nbsp;рублях, тенге, долларах или&nbsp;евро&nbsp;— как&nbsp;удобно.</div>
     </details>
   </div>
