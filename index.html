@@ -177,7 +177,7 @@ html, body { margin:0; padding:0; background:var(--bg); color:var(--fg); font-fa
 body { overflow-x: hidden; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
-em { font-style: normal; background: var(--green); color: var(--bg); padding: 0 0.15em; }
+em { font-style: normal; background: var(--green); color: var(--bg); padding: 0.05em 0.15em; }
 
 /* Cursor */
 .cursor, .cursor-dot { position:fixed; top:0; left:0; pointer-events:none; z-index:9999; mix-blend-mode:difference; will-change:transform; }
@@ -214,7 +214,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 .hero-meta { display:inline-flex; align-items:center; gap:10px; font-family:var(--f-mono); font-size:12px; color:var(--fg-dim); margin-bottom: 24px; }
 .dot { width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 12px var(--green); animation:pulse 2s infinite; }
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.hero-title { font-family:var(--f-display); font-size:clamp(40px, 6.4vw, 104px); font-weight:700; line-height:.95; letter-spacing:-.03em; margin:0 0 28px; text-transform:uppercase; }
+.hero-title { font-family:var(--f-display); font-size:clamp(40px, 6.4vw, 104px); font-weight:700; line-height:1.05; letter-spacing:-.03em; margin:0 0 28px; text-transform:uppercase; }
 .hero-sub-title { font-family:var(--f-display); font-size:clamp(18px, 1.6vw, 22px); font-weight:500; color:var(--fg-dim); margin:0 0 24px; line-height:1.3; }
 .hero-text { max-width:560px; font-size:clamp(15px, 1.15vw, 17px); color:var(--fg-dim); line-height:1.55; margin:0 0 36px; }
 .hero-tags { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 32px; }
@@ -443,11 +443,15 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 .burger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
 .burger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
 
-.nav-mobile { display:none; position:fixed; inset:0; background:var(--bg); z-index:48; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
-.nav-mobile.open { display:flex; }
-.nav-mobile a { font-family:var(--f-display); font-size:clamp(18px,4vw,26px); font-weight:400; text-transform:uppercase; letter-spacing:.02em; color:var(--fg); transition:color .2s; }
+.nav-mobile { display:none; position:fixed; top:0; right:0; bottom:0; width:min(280px,75vw); background:var(--bg); border-left:1px solid var(--line); z-index:48; flex-direction:column; align-items:flex-end; justify-content:center; gap:16px; padding:40px 32px; transform:translateX(100%); transition:transform .35s cubic-bezier(.4,0,.2,1); }
+.nav-mobile { display:flex; }
+.nav-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:47; }
+.nav-overlay.open { display:block; }
+.nav-mobile.open { transform:translateX(0); }
+.nav-mobile a { font-family:var(--f-display); font-size:clamp(15px,3.5vw,20px); font-weight:400; text-transform:uppercase; letter-spacing:.04em; color:var(--fg); transition:color .2s; text-align:right; }
 .nav-mobile a:hover { color:var(--green); }
-.nav-mobile-cta { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:16px; }
+.nav-mobile-cta { display:flex; flex-direction:column; gap:8px; margin-top:16px; width:100%; align-items:flex-end; }
+.nav-mobile-cta .btn { font-size:12px; padding:10px 18px; text-align:center; width:100%; }
 
 @media (max-width:880px) {
   .nav { display:none; }
@@ -558,6 +562,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
   </div>
 </header>
 
+<div class="nav-overlay" id="navOverlay"></div>
 <nav class="nav-mobile" id="navMobile" aria-label="Мобильное меню">
   <a href="#audience" class="nav-m-link">для кого</a>
   <a href="#why" class="nav-m-link">почему я</a>
@@ -1236,10 +1241,11 @@ document.body.classList.add("cursor-on");
 
 // Burger menu
 (function burger(){
-  const btn=document.getElementById("burger"),nav=document.getElementById("navMobile");
+  const btn=document.getElementById("burger"),nav=document.getElementById("navMobile"),overlay=document.getElementById("navOverlay");
   if(!btn||!nav)return;
-  function close(){btn.classList.remove("open");nav.classList.remove("open");btn.setAttribute("aria-expanded","false");document.body.style.overflow="";}
-  btn.addEventListener("click",()=>{const open=btn.classList.toggle("open");nav.classList.toggle("open",open);btn.setAttribute("aria-expanded",open);document.body.style.overflow=open?"hidden":"";});
+  function close(){btn.classList.remove("open");nav.classList.remove("open");if(overlay)overlay.classList.remove("open");btn.setAttribute("aria-expanded","false");document.body.style.overflow="";}
+  if(overlay)overlay.addEventListener("click",close);
+  btn.addEventListener("click",()=>{const open=btn.classList.toggle("open");nav.classList.toggle("open",open);if(overlay)overlay.classList.toggle("open",open);btn.setAttribute("aria-expanded",open);document.body.style.overflow=open?"hidden":"";});
   nav.querySelectorAll(".nav-m-link").forEach(a=>a.addEventListener("click",close));
   nav.querySelectorAll(".btn").forEach(a=>a.addEventListener("click",close));
 })();
