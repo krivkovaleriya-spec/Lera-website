@@ -410,6 +410,8 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 /* FAQ */
 .faq { display:flex; flex-direction:column; border-top:1px solid var(--line); }
 .faq-item { border-bottom:1px solid var(--line); }
+.faq-item summary::-webkit-details-marker { display:none; }
+.faq-item summary { list-style:none; }
 .faq-q { width:100%; display:flex; justify-content:space-between; align-items:center; gap:24px; padding:18px 0; background:none; border:none; color:var(--fg-dim); font-family:var(--f-display); font-size:clamp(16px, 1.6vw, 20px); font-weight:500; text-align:left; cursor:pointer; transition:color .25s; }
 .faq-q:hover { color:var(--green); }
 .faq-q-mark { font-family:var(--f-mono); font-size:13px; color:var(--green); transition:transform .3s var(--ease); flex-shrink:0; }
@@ -995,7 +997,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 <section class="section" id="gc-visual">
   <div class="section-head">
     <div class="section-num">— визуал getcourse</div>
-    <h2 class="section-title">Личный кабинет,<br><em>который продаёт</em></h2>
+    <h2 class="section-title">Личный кабинет, <em>который продаёт</em></h2>
     <p class="section-sub">Дизайн, который клиенты школы замечают сразу. Нажми — перевернётся.</p>
   </div>
   <div class="gc-flip-grid">
