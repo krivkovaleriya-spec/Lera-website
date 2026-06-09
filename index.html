@@ -542,7 +542,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 
 /* Preloader */
 #preloader { position:fixed; inset:0; background:#0a0a0a; z-index:99999; display:flex; flex-direction:column; align-items:center; justify-content:center; pointer-events:all; }
-#preloader.slide-up { transform:translateY(-100%); transition:transform .9s cubic-bezier(.76,0,.24,1); }
+#preloader.slide-up { opacity:0; transition:opacity .8s ease; }
 .pre-counter { font-family:"Space Grotesk",sans-serif; font-size:clamp(200px,45vw,600px); font-weight:700; line-height:1; letter-spacing:-.04em; color:#f0f0e8; }
 .pre-counter span { color:oklch(0.78 0.18 130); }
 .pre-bottom { position:absolute; bottom:32px; left:0; right:0; display:flex; flex-direction:column; align-items:center; gap:16px; }
