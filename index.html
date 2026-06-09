@@ -540,6 +540,15 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 .gc-card img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
 @media(max-width:768px){ .gc-flip-grid { grid-template-columns:1fr; } .flip-card { aspect-ratio:4/3; } }
 
+/* Preloader */
+#preloader { position:fixed; inset:0; background:#0a0a0a; z-index:99999; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0; pointer-events:all; }
+#preloader.slide-up { transform:translateY(-100%); transition:transform .9s cubic-bezier(.76,0,.24,1); }
+.pre-counter { font-family:"Space Grotesk",sans-serif; font-size:clamp(80px,18vw,200px); font-weight:700; line-height:1; letter-spacing:-.04em; color:#f0f0e8; tabular-nums; }
+.pre-counter span { color:oklch(0.78 0.18 130); }
+.pre-label { font-family:"JetBrains Mono",monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#a8a9a3; margin-top:16px; }
+.pre-bar { position:absolute; bottom:0; left:0; height:2px; background:oklch(0.78 0.18 130); width:0%; transition:width .05s linear; }
+@media(prefers-reduced-motion:reduce){ #preloader { display:none !important; } }
+
 /* Scroll animations */
 .reveal { opacity:0; transform:translateY(28px); transition:opacity .65s var(--ease), transform .65s var(--ease); }
 .reveal.visible { opacity:1; transform:translateY(0); }
@@ -551,6 +560,12 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 </style>
 </head>
 <body>
+
+<div id="preloader">
+  <div class="pre-counter"><span id="preNum">0</span>%</div>
+  <div class="pre-label">Загрузка портфолио</div>
+  <div class="pre-bar" id="preBar"></div>
+</div>
 
 
 <div class="cursor" id="cursor"></div>
@@ -1258,6 +1273,37 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 
 
 <script>
+// Preloader
+(function(){
+  const el = document.getElementById('preloader');
+  const num = document.getElementById('preNum');
+  const bar = document.getElementById('preBar');
+  if(!el||!num||!bar) return;
+
+  let current = 0;
+  const duration = 1800;
+  const start = performance.now();
+
+  function ease(t){ return t<0.5 ? 2*t*t : -1+(4-2*t)*t; }
+
+  function tick(now){
+    const t = Math.min((now - start) / duration, 1);
+    current = Math.floor(ease(t) * 100);
+    num.textContent = current;
+    bar.style.width = current + '%';
+    if(t < 1){ requestAnimationFrame(tick); }
+    else {
+      num.textContent = '100';
+      bar.style.width = '100%';
+      setTimeout(() => {
+        el.classList.add('slide-up');
+        el.addEventListener('transitionend', () => el.remove(), { once:true });
+      }, 200);
+    }
+  }
+  requestAnimationFrame(tick);
+})();
+
 document.body.classList.add("cursor-on");
 
 // Burger menu
