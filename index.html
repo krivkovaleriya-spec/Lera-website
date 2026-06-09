@@ -341,9 +341,8 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 .tablet-viewport img { position:absolute; top:0; left:0; width:100%; height:auto; display:block; transition: transform 8s var(--ease); }
 .tablet:hover .tablet-viewport img, .case-mockups:hover .tablet-viewport img { transform: translateY(-88%); }
 .tablet-shadow { position:absolute; left:8%; right:8%; bottom:-20px; height:32px; background:radial-gradient(ellipse at center, rgba(0,0,0,.55), transparent 70%); filter:blur(10px); z-index:-1; }
-.case-tap-hint { position:absolute; bottom:18%; left:50%; transform:translateX(-50%); font-size:32px; pointer-events:none; z-index:10; animation:case-tap 1.8s ease-in-out infinite; transition:opacity .4s; }
+.case-tap-hint { position:absolute; bottom:18%; left:50%; transform:translateX(-50%); pointer-events:none; z-index:10; transition:opacity .4s; display:inline-block; animation:hand-tap 1.6s ease-in-out infinite; transform-origin:50% 80%; color:var(--fg); filter:drop-shadow(0 2px 8px rgba(0,0,0,.5)); }
 .case-mockups:hover .case-tap-hint { opacity:0; }
-@keyframes case-tap { 0%,100% { transform:translateX(-50%) translateY(0) rotate(0deg); } 35% { transform:translateX(-50%) translateY(-6px) rotate(-10deg); } 60% { transform:translateX(-50%) translateY(2px) rotate(6deg); } }
 .case-mockup-label { background:var(--bg); padding:6px 12px; font-family:var(--f-mono); font-size:11px; color:var(--fg-dim); text-transform:uppercase; letter-spacing:.08em; }
 .case-info { display:flex; flex-direction:column; gap:14px; }
 .case-niche { display:inline-flex; align-self:flex-start; padding:6px 12px; border:1px solid var(--green); color:var(--green); font-family:var(--f-mono); font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
@@ -795,7 +794,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
   <div class="cases-list">
 
     <article class="case">
-      <div class="case-mockups"><span class="case-tap-hint">👆</span>
+      <div class="case-mockups"><svg class="case-tap-hint" width="32" height="38" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -817,7 +816,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups"><span class="case-tap-hint">👆</span>
+      <div class="case-mockups"><svg class="case-tap-hint" width="32" height="38" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -839,7 +838,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups"><span class="case-tap-hint">👆</span>
+      <div class="case-mockups"><svg class="case-tap-hint" width="32" height="38" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -861,7 +860,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups"><span class="case-tap-hint">👆</span>
+      <div class="case-mockups"><svg class="case-tap-hint" width="32" height="38" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -883,7 +882,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups"><span class="case-tap-hint">👆</span>
+      <div class="case-mockups"><svg class="case-tap-hint" width="32" height="38" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -904,7 +903,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups"><span class="case-tap-hint">👆</span>
+      <div class="case-mockups"><svg class="case-tap-hint" width="32" height="38" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -926,7 +925,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups"><span class="case-tap-hint">👆</span>
+      <div class="case-mockups"><svg class="case-tap-hint" width="32" height="38" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -947,7 +946,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups"><span class="case-tap-hint">👆</span>
+      <div class="case-mockups"><svg class="case-tap-hint" width="32" height="38" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -969,7 +968,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups"><span class="case-tap-hint">👆</span>
+      <div class="case-mockups"><svg class="case-tap-hint" width="32" height="38" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13V5.5a1.5 1.5 0 0 1 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M10 10.5V9a1.5 1.5 0 0 1 3 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M13 10V9a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 11.5V11a1.5 1.5 0 0 1 3 0v4.5c0 4-2.5 7-6.5 7S6 19.5 6 15.5V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 13c0 .5-.5 1-1 .5s-1-1.5-.5-3S6 8 7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
