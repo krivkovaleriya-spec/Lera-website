@@ -341,6 +341,9 @@ body.cursor-hover .cursor { width:64px; height:64px; }
 .tablet-viewport img { position:absolute; top:0; left:0; width:100%; height:auto; display:block; transition: transform 8s var(--ease); }
 .tablet:hover .tablet-viewport img, .case-mockups:hover .tablet-viewport img { transform: translateY(-88%); }
 .tablet-shadow { position:absolute; left:8%; right:8%; bottom:-20px; height:32px; background:radial-gradient(ellipse at center, rgba(0,0,0,.55), transparent 70%); filter:blur(10px); z-index:-1; }
+.case-tap-hint { position:absolute; bottom:18%; left:50%; transform:translateX(-50%); font-size:32px; pointer-events:none; z-index:10; animation:case-tap 1.8s ease-in-out infinite; transition:opacity .4s; }
+.case-mockups:hover .case-tap-hint { opacity:0; }
+@keyframes case-tap { 0%,100% { transform:translateX(-50%) translateY(0) rotate(0deg); } 35% { transform:translateX(-50%) translateY(-6px) rotate(-10deg); } 60% { transform:translateX(-50%) translateY(2px) rotate(6deg); } }
 .case-mockup-label { background:var(--bg); padding:6px 12px; font-family:var(--f-mono); font-size:11px; color:var(--fg-dim); text-transform:uppercase; letter-spacing:.08em; }
 .case-info { display:flex; flex-direction:column; gap:14px; }
 .case-niche { display:inline-flex; align-self:flex-start; padding:6px 12px; border:1px solid var(--green); color:var(--green); font-family:var(--f-mono); font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
@@ -792,7 +795,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
   <div class="cases-list">
 
     <article class="case">
-      <div class="case-mockups">
+      <div class="case-mockups"><span class="case-tap-hint">👆</span>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -814,7 +817,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups">
+      <div class="case-mockups"><span class="case-tap-hint">👆</span>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -836,7 +839,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups">
+      <div class="case-mockups"><span class="case-tap-hint">👆</span>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -858,7 +861,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups">
+      <div class="case-mockups"><span class="case-tap-hint">👆</span>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -880,7 +883,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups">
+      <div class="case-mockups"><span class="case-tap-hint">👆</span>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -901,7 +904,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups">
+      <div class="case-mockups"><span class="case-tap-hint">👆</span>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -923,7 +926,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups">
+      <div class="case-mockups"><span class="case-tap-hint">👆</span>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -944,7 +947,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups">
+      <div class="case-mockups"><span class="case-tap-hint">👆</span>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
@@ -966,7 +969,7 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     </article>
 
     <article class="case">
-      <div class="case-mockups">
+      <div class="case-mockups"><span class="case-tap-hint">👆</span>
         <div class="laptop">
           <div class="laptop-screen">
             <span class="laptop-camera"></span>
