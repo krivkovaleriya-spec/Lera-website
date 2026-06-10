@@ -409,6 +409,12 @@ body.cursor-hover .cursor { width:64px; height:64px; }
   .price-head { display: none; }
   .price-row .price-name { grid-column: 1/-1; }
   .price-row .price-incl { grid-column: 1/-1; color: var(--fg-mute); }
+  .price-row .price-val { font-size:12px; }
+}
+@media (max-width:600px){
+  .price-row { display:flex; flex-direction:column; gap:6px; }
+  .price-row .price-vals { display:flex; flex-direction:row; gap:12px; flex-wrap:nowrap; }
+  .price-row .price-val { font-size:12px; white-space:nowrap; }
 }
 
 /* Final CTA */
@@ -1148,32 +1154,32 @@ body.cursor-hover .cursor { width:64px; height:64px; }
     <div class="price-row">
       <span class="price-name">Сайт на Tilda</span>
       <span class="price-incl">Лендинг, домен, платёжки, CRM, базовые интеграции</span>
-      <span class="price-val">от 80&nbsp;000&nbsp;₸</span><span class="price-val">от 15&nbsp;500&nbsp;₽</span><span class="price-val">от $155</span>
+      <span class="price-vals"><span class="price-val">от 80&nbsp;000&nbsp;₸</span><span class="price-val">от 15&nbsp;500&nbsp;₽</span><span class="price-val">от $155</span></span>
     </div>
     <div class="price-row">
       <span class="price-name">GetCourse</span>
       <span class="price-incl">Полная настройка, уроки, доступы, оформление кабинета</span>
-      <span class="price-val">от 150&nbsp;000&nbsp;₸</span><span class="price-val">от 29&nbsp;000&nbsp;₽</span><span class="price-val">от $290</span>
+      <span class="price-vals"><span class="price-val">от 150&nbsp;000&nbsp;₸</span><span class="price-val">от 29&nbsp;000&nbsp;₽</span><span class="price-val">от $290</span></span>
     </div>
     <div class="price-row">
       <span class="price-name">Чат-бот</span>
       <span class="price-incl">Воронка, сегментация, интеграция с&nbsp;CRM</span>
-      <span class="price-val">от 50&nbsp;000&nbsp;₸</span><span class="price-val">от 9&nbsp;700&nbsp;₽</span><span class="price-val">от $97</span>
+      <span class="price-vals"><span class="price-val">от 50&nbsp;000&nbsp;₸</span><span class="price-val">от 9&nbsp;700&nbsp;₽</span><span class="price-val">от $97</span></span>
     </div>
     <div class="price-row">
       <span class="price-name">ИИ продавец</span>
       <span class="price-incl">ИИ-агент в&nbsp;WhatsApp/Telegram, обучение под&nbsp;ваш продукт, интеграция с&nbsp;CRM</span>
-      <span class="price-val">от 300&nbsp;000&nbsp;₸</span><span class="price-val">от 58&nbsp;000&nbsp;₽</span><span class="price-val">от $580</span>
+      <span class="price-vals"><span class="price-val">от 300&nbsp;000&nbsp;₸</span><span class="price-val">от 58&nbsp;000&nbsp;₽</span><span class="price-val">от $580</span></span>
     </div>
     <div class="price-row">
       <span class="price-name">Email/SMS рассылка</span>
       <span class="price-incl">Цепочки, триггеры, шаблоны, автодозвон</span>
-      <span class="price-val">от 20&nbsp;000&nbsp;₸</span><span class="price-val">от 3&nbsp;900&nbsp;₽</span><span class="price-val">от $39</span>
+      <span class="price-vals"><span class="price-val">от 20&nbsp;000&nbsp;₸</span><span class="price-val">от 3&nbsp;900&nbsp;₽</span><span class="price-val">от $39</span></span>
     </div>
     <div class="price-row">
       <span class="price-name">Вебинарная воронка</span>
       <span class="price-incl">Bizon365/Pruffme, регистрация, дожим, автовебинары</span>
-      <span class="price-val">по запросу</span><span class="price-val">по запросу</span><span class="price-val">по запросу</span>
+      <span class="price-vals"><span class="price-val">по запросу</span><span class="price-val">по запросу</span><span class="price-val">по запросу</span></span>
     </div>
   </div>
   <div class="price-cta">
