@@ -409,11 +409,9 @@ body.cursor-hover .cursor { width:64px; height:64px; }
   .price-head { display: none; }
   .price-row .price-name { grid-column: 1/-1; }
   .price-row .price-incl { grid-column: 1/-1; color: var(--fg-mute); }
-  .price-row .price-val { font-size:12px; }
 }
 @media (max-width:600px){
-  .price-row { display:flex; flex-direction:column; gap:6px; }
-  .price-row .price-vals { display:flex; flex-direction:row; gap:12px; flex-wrap:nowrap; }
+  .price-row .price-vals { grid-column: 1/-1; display:flex; flex-direction:row; gap:12px; }
   .price-row .price-val { font-size:12px; white-space:nowrap; }
 }
 
