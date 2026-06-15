@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>404 — Страница не найдена | Валерия Кривко</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --fg: #f0f0e8;
+    --fg-dim: #a8a9a3;
+    --green: oklch(72% 0.18 130);
+    --green-dim: oklch(72% 0.18 130 / 0.15);
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Inter', sans-serif;
+    height: 100%;
+    min-height: 100vh;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(80px, 18vw, 160px);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--fg-dim);
+    letter-spacing: -4px;
+    margin-bottom: 24px;
+  }
+
+  .code em {
+    color: var(--green);
+    font-style: normal;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 500;
+    color: var(--fg);
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 16px;
+    color: var(--fg-dim);
+    max-width: 360px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid var(--green);
+    color: var(--green);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn:hover {
+    background: var(--green-dim);
+    color: var(--green);
+  }
+
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--fg-dim);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 64px;
+    opacity: 0.5;
+  }
+</style>
+</head>
+<body>
+  <div class="code"><em>4</em>0<em>4</em></div>
+  <h1>Страница не найдена</h1>
+  <p>Такой страницы не существует или она была удалена. Вернитесь на главную.</p>
+  <a href="/" class="btn">← На главную</a>
+  <div class="label">valeriyakrivko.kz</div>
+</body>
+</html>
