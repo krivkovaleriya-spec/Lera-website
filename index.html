@@ -1395,8 +1395,8 @@ document.body.classList.add("cursor-on");
 (function clock(){
   const el=document.getElementById("footClock");if(!el)return;
   function tick(){
-    const now=new Date(),utc=now.getTime()+now.getTimezoneOffset()*60000,samui=new Date(utc+7*3600000),p=n=>String(n).padStart(2,"0");
-    el.textContent=`🌴 SAMUI · ${p(samui.getHours())}:${p(samui.getMinutes())}:${p(samui.getSeconds())}`;
+    const now=new Date(),utc=now.getTime()+now.getTimezoneOffset()*60000,almaty=new Date(utc+5*3600000),p=n=>String(n).padStart(2,"0");
+    el.textContent=`АЛМАТЫ · ${p(almaty.getHours())}:${p(almaty.getMinutes())}:${p(almaty.getSeconds())}`;
   }
   tick();setInterval(tick,1000);
 })();
