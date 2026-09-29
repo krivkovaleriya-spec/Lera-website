@@ -81,7 +81,7 @@ lera-website/
 - H1 на cases-standalone.html: "Кейсы — Tilda, GetCourse, чат-боты"
 - Hero-теги с ключевыми запросами (между sub-title и CTA)
 - FAQ секция — 11 вопросов (6 про ИИ-продавца, 3 про GetCourse/Tilda/гео, 2 про процесс)
-- areaServed в JSON-LD: Казахстан, Россия, Великобритания, Таиланд, Кипр
+- areaServed в JSON-LD: Казахстан, Россия, Великобритания, Кипр
 
 ### AI-поиск (llms.txt)
 - Описание услуг с ценами
