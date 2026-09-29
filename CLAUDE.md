@@ -1,9 +1,23 @@
 # CLAUDE.md — Личный сайт Валерии Кривко
 
-**URL:** https://valeriyakrivko.kz/  
+**URL (RU):** https://valeriyakrivko.com/  
+**URL (EN):** https://valeriyakrivko.com/en/  
 **GitHub Pages репо:** krivkovaleriya-spec/krivkovaleriya-spec.github.io (или аналог)  
 **Платформа:** GitHub Pages (не Tilda — нет ограничений платформы)  
-**Кастомный домен:** valeriyakrivko.kz (CNAME файл в репо)
+**Кастомный домен:** valeriyakrivko.com (CNAME файл в репо) — с 2026-09-29 переехали с .kz на .com
+
+## Двуязычность
+
+Сайт двуязычный:
+- `/` — русская версия (default)
+- `/en/` — английская версия
+- `/cases/` и `/en/cases/` — кейсы
+- Переключатель `RU | EN` есть в хедере и мобильном меню всех 4 страниц
+- hreflang теги во всех `<head>` (ru, en, x-default)
+- `sitemap.xml` содержит все 4 URL с `<xhtml:link rel="alternate">`
+- `/en/llms.txt` — отдельный английский llms.txt для AI-поисковиков
+
+Правки текста делать в обоих версиях одновременно. Цены в EN: USD/EUR/GBP (курс 1 USD ≈ 475 KZT).
 
 ---
 
@@ -16,7 +30,7 @@ lera-website/
 ├── llms.txt                # Для AI-поисковиков (ChatGPT, Perplexity, Claude)
 ├── sitemap.xml             # Карта сайта для Googlebot
 ├── robots.txt              # Allow: /, Sitemap ссылка
-├── CNAME                   # valeriyakrivko.kz (для GitHub Pages)
+├── CNAME                   # valeriyakrivko.com (для GitHub Pages)
 ├── og-banner.html          # Исходник OG-баннера 1200×630 (HTML → скриншот)
 ├── CLAUDE.md               # Этот файл
 ├── images/
@@ -46,9 +60,9 @@ lera-website/
 
 ### Технический SEO
 - `sitemap.xml` — index.html + cases-standalone.html с lastmod
-- `robots.txt` — Allow: /, Sitemap: https://valeriyakrivko.kz/sitemap.xml
-- `CNAME` — кастомный домен valeriyakrivko.kz
-- Canonical URL — `<link rel="canonical" href="https://valeriyakrivko.kz/">`
+- `robots.txt` — Allow: /, Sitemap: https://valeriyakrivko.com/sitemap.xml
+- `CNAME` — кастомный домен valeriyakrivko.com
+- Canonical URL — `<link rel="canonical" href="https://valeriyakrivko.com/">`
 - `<link rel="preload" as="image" href="images/Lera.png">` — LCP оптимизация
 - og:image = `images/Preview.png` (брендированный баннер 1200×630)
 
@@ -107,7 +121,7 @@ HTTPS: автоматически через GitHub Pages (Let's Encrypt), ак�
 - GitHub Pages: нет серверного рендеринга, нет PHP, всё статика
 - `!important` на `color` для `<a>` не нужен (это не Tilda)
 - Мобилку менять прямо в HTML/CSS
-- Все URL в файлах: `valeriyakrivko.kz` (не valeriyavaly.github.io)
+- Все URL в файлах: `valeriyakrivko.com` (не valeriyavaly.github.io)
 
 ---
 
@@ -126,7 +140,7 @@ GitHub Pages публикует через ~1–2 минуты.
 
 ## Статус
 
-**Задеплоено:** да, сайт открывается на valeriyakrivko.kz  
+**Задеплоено:** да, сайт открывается на valeriyakrivko.com  
 **HTTPS:** автоматически (ждать до 30 мин после DNS)  
 **Все SEO улучшения:** применены
 
@@ -182,6 +196,13 @@ GitHub Pages публикует через ~1–2 минуты.
 - **`<br>` в hero-title** ломает десктоп — использовать только для мобилки через медиа-запрос или не использовать совсем
 - **`em` внутри заголовков** — не менять на `inline`, только `inline-block`
 - **price-row грид** на десктопе `1.6fr 2fr 1fr 1fr 1fr` — не ломать враппером
+
+---
+
+## TODO
+
+- [ ] Проверить статистику посещений: https://analytics.google.com/analytics/web/provision/#/provision/create
+  - Google Analytics подключён: G-V7M0K19Y06
 
 ---
 

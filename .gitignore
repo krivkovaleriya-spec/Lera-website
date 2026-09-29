@@ -1,0 +1,28 @@
+node_modules/
+package-lock.json
+package.json
+*.log
+
+# Temporary scripts (agent leftovers)
+add-favicon.js
+check-src.js
+compress-images.js
+convert-webp.js
+find-issues.js
+find-tilda.js
+fix-all.js
+fix-card08.js
+fix-desc.js
+fix-gsc.js
+fix-hero-mobile.js
+fix-menu-hero.js
+fix-menu2.js
+fix-menu3.js
+fix-tilda.js
+fix-yandex.js
+rebuild-html.js
+update-webp-refs.js
+
+# Backup / check files
+index_check.html
+index_old.html
