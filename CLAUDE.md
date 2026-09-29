@@ -25,17 +25,24 @@
 
 ```
 lera-website/
-├── index.html              # Весь сайт — один файл
-├── cases-standalone.html   # Отдельная страница кейсов
-├── llms.txt                # Для AI-поисковиков (ChatGPT, Perplexity, Claude)
-├── sitemap.xml             # Карта сайта для Googlebot
+├── index.html              # RU главная
+├── cases/index.html        # RU кейсы
+├── cases-standalone.html   # Редирект на /cases/
+├── llms.txt                # RU llms.txt для AI-поисковиков
+├── en/
+│   ├── index.html          # EN главная
+│   ├── cases/index.html    # EN кейсы
+│   ├── cases-standalone.html  # Редирект на /en/cases/
+│   └── llms.txt            # EN llms.txt
+├── sitemap.xml             # Карта сайта (4 URL + xhtml:link alternates)
 ├── robots.txt              # Allow: /, Sitemap ссылка
 ├── CNAME                   # valeriyakrivko.com (для GitHub Pages)
-├── og-banner.html          # Исходник OG-баннера 1200×630 (HTML → скриншот)
+├── og-banner.html          # Исходник OG-баннера 1200×630
 ├── CLAUDE.md               # Этот файл
+├── .gitignore              # node_modules, временные скрипты
 ├── images/
 │   ├── Lera.png            # Фото Лерчика (hero section)
-│   ├── Preview.png         # Брендированный OG-баннер (скриншот og-banner.html)
+│   ├── Preview.png         # OG-баннер 1200×630
 │   └── ...                 # Скрины кейсов
 └── video/                  # Видео (не подключено)
 ```
@@ -98,20 +105,24 @@ lera-website/
 
 ---
 
-## DNS-записи (у регистратора домена)
+## DNS-записи (Cloudflare)
 
-DNS настроен на GitHub Pages:
+Домен `valeriyakrivko.com` куплен на Cloudflare, DNS настроен на GitHub Pages:
 ```
-A  @  185.199.108.153
-A  @  185.199.109.153
-A  @  185.199.110.153
-A  @  185.199.111.153
-CNAME  www  krivkovaleriya-spec.github.io
+A      @    185.199.108.153    DNS only (серое облачко)
+A      @    185.199.109.153    DNS only
+A      @    185.199.110.153    DNS only
+A      @    185.199.111.153    DNS only
+CNAME  www  krivkovaleriya-spec.github.io    DNS only
 ```
 
-Остальные записи (mail, online→getcourse, TXT, MX, n8n) — не трогать, нужны для почты и других сервисов.
+**⚠️ Важно про Proxy status:**
+- DNS only (серое) — обязательно на этапе получения SSL от GitHub, иначе сертификат не выпустится
+- После того как HTTPS заработает, можно включить оранжевое (Cloudflare прокси) → но тогда SSL/TLS в Cloudflare должен быть **Full** (не Flexible — будет редирект-петля)
 
-HTTPS: автоматически через GitHub Pages (Let's Encrypt), активируется после DNS propagation.
+**Старый домен `valeriyakrivko.kz`:** не оплачивается, отпущен (с 2026-09-29).
+
+HTTPS: автоматически через GitHub Pages (Let's Encrypt), активируется после DNS propagation (~15-30 мин).
 
 ---
 
@@ -122,6 +133,9 @@ HTTPS: автоматически через GitHub Pages (Let's Encrypt), ак�
 - `!important` на `color` для `<a>` не нужен (это не Tilda)
 - Мобилку менять прямо в HTML/CSS
 - Все URL в файлах: `valeriyakrivko.com` (не valeriyavaly.github.io)
+- **Правки текста — сразу в RU и EN версиях** (index.html + en/index.html, cases/index.html + en/cases/index.html)
+- **hreflang теги** во всех `<head>` — не удалять
+- **Цены в EN:** USD / EUR / GBP (курс ~475 KZT/USD)
 
 ---
 
@@ -140,9 +154,35 @@ GitHub Pages публикует через ~1–2 минуты.
 
 ## Статус
 
-**Задеплоено:** да, сайт открывается на valeriyakrivko.com  
+**Домен:** valeriyakrivko.com (переехали с .kz 2026-09-29)  
+**Двуязычность:** RU + EN, переключатель в меню, hreflang готов  
 **HTTPS:** автоматически (ждать до 30 мин после DNS)  
-**Все SEO улучшения:** применены
+**SEO:** sitemap с 4 URL, llms.txt на двух языках, JSON-LD на обеих версиях
+
+---
+
+## Что сделано (сессия 2026-09-29)
+
+### Переезд домена .kz → .com
+- Куплен `valeriyakrivko.com` на Cloudflare
+- Настроены 4 A-записи + CNAME www на GitHub Pages (все DNS only)
+- Заменён CNAME файл в репо
+- Домен `.kz` отпущен (не оплачивается)
+- Все URL в файлах (index.html, cases/, llms.txt, sitemap.xml, robots.txt, JSON-LD) обновлены на `.com`
+
+### Английская версия сайта
+- Создана папка `/en/` с полной англ версией: главная, кейсы, cases-standalone (редирект), llms.txt
+- Профессиональный деловой перевод всех текстов (не машинный)
+- Переключатель `RU | EN` в шапке и мобильном меню на всех 4 страницах — активный язык подсвечен зелёным
+- `hreflang` теги (ru, en, x-default) во всех `<head>` — Google поймёт языковые версии
+- `sitemap.xml` расширен: 4 URL + `xhtml:link rel="alternate"` для каждой пары
+- Цены EN: три колонки USD / EUR / GBP (курс ~475 KZT/USD)
+- JSON-LD (Person, ProfessionalService, FAQPage) переведён на английский на EN-страницах
+- Название "ВАЛЕРИЯ КРИВКО" в preloader на EN → "VALERIA KRIVKO"
+- Google Analytics (G-V7M0K19Y06) на обеих версиях — один property
+
+### Прочее
+- Добавлен `.gitignore` (node_modules, временные fix-*.js скрипты)
 
 ---
 
